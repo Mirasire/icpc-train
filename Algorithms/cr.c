@@ -6,15 +6,21 @@ int main()
 {
     int number[6] = {5,3,7,6,2,3};
     print(number);
-    for(int i=2,j; i<6; i++)
+    for(int i=1; i<6; i++)
     {
-        for(j=i; j>0; j--)
+        for(int j=i; j>=0; j--)
         {
-            if(number[j-1] > number[i]) break;
+            if(number[j-1] > number[j])
+            {
+                int temp = number[j];
+                number[j] = number[j-1];
+                number[j-1] = temp;
+            }
+            else
+            {
+                break;
+            }
         }
-        int temp = number[i];
-        number[i] = number[j];
-        number[j] = temp;
         print(number);
     }
     return 0;

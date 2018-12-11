@@ -12,8 +12,7 @@ int main()
         while(j >= 0 && number[j] > key)
         {
             number[j+1] = number[j];
-            j--;
-            number[j+1] = key;
+            number[j--] = key;
         }
         print(number);
     }

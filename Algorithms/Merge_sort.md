@@ -41,9 +41,30 @@ while(i < m+n)
 ```
 **Code -plus**
 ```c
-Merge(int *number,int p,int q,int r)
+void Merge(int *number,int p,int q,int r)
 {
-	
+	int n1=p-q+1,n2=r-q;
+	int *B = number[q];
+	int ia=0,ib=0,i=0;
+	int *A=(int *)malloc(sizeof(int)*n1);
+	for(int j=0; j<n1; j++)
+		*(A+j)=number[j];
+	while(ia < n1 && ib < n2)
+	{
+        if(*(A+ia) <= *(B+ib))
+        	*(number+i++) = *(A+ia++);
+        else
+        	*(number+i++) = *(B+ib++);
+	}
+	int end = n1+n2;
+	while(i < end)
+	{
+        if(ia < n1)
+        	*(number+i++) = *(A+ia++);
+        else
+        	*(number+i++) = *(B+ib++);
+	}
+	return;
 }
 ```
 
@@ -65,7 +86,7 @@ Merge(int *number,int p,int q,int r)
  - 递归的使用~~PS:虽然递归我也不是很会用,但是细推还是能理解的~~
 
 **2. 程序思路**
-
+### Solution1-自顶向下
 >  假设我们写的外部调用归并的函数名为Merge_sort(number,p,r) 
 >   **number** 就是我们需要排序的那个数组
 >   **p**是排序数组的起始下标
@@ -75,3 +96,14 @@ Merge(int *number,int p,int q,int r)
 2. 调用Merge_sort(number,p,q)
 3. 调用Merge_sort(number,q,r)
 4. 调用外部函数Merge(number,p,q,r)	//就是上面那个排序程序
+5. 
+```c
+void Merge_sort(int number,int p,int r)
+{
+	int q = (p+r)/2;
+	Merge_sort(number,p,q);
+	Merge_sort(number,q,r);
+	Merge(number,p,q,r);
+	return;    
+}
+```

@@ -25,26 +25,26 @@ void Merge(int *number,int p,int q,int r)
 {
     int n1=q-p+1,n2=r-q;
     int ia=0,ib=0,i=0;
-    int *B = &number[q+1];
+    int *B = &number[q+1],*C = &number[p];
     int *A = (int *)malloc(sizeof(int)*n1);
     for(int i=0,j=p; i<n1; i++)
         A[i] = number[j++];
     while(ia < n1 && ib < n2)
     {
         if(*(A+ia) <= *(B+ib))
-            *(&number[p]+i++) = *(A+ia++);
+            *(C+i++) = *(A+ia++);
         else
-            *(&number[p]+i++) = *(B+ib++);
+            *(C+i++) = *(B+ib++);
     }
     int end = n1+n2;
     while(i < end)
     {
         if(ia <= ia)
-            *(&number[p]+i++) = *(A+ia++);
+            *(C+i++) = *(A+ia++);
         else
-            *(&number[p]+i++) = *(B+ib++);
+            *(C+i++) = *(B+ib++);
     }
-    print(number,r);
+    print(number,17);
     free(A);
     return;
 }
@@ -59,6 +59,6 @@ void Merge_sort(int *number,int p,int r)
         Merge_sort(number,p,q);
         Merge_sort(number,q+1,r);
         Merge(number,p,q,r);
-        print(number,r);
+        print(number,17);
     }
 }

@@ -23,7 +23,7 @@ Q:	 如何把两个已经排好的<font color='black' size=6>数组</font>合并
 
 **Code-when arry == 3**
 
-```c
+```
 int ia=0,ib=0,i=0;
 while(ia < n && ib < m)
 {
@@ -45,28 +45,28 @@ while(i < m+n)
 ```c
 void Merge(int *number,int p,int q,int r)
 {
-​    int n1=p-q+1,n2=r-q;
-​    int *B = &number[q];
-​    int ia=0,ib=0,i=0;
-​    int *A=(int *)malloc(sizeof(int)*n1);
-​    for(int j=0; j<n1; j++)
-​        *(A+j)=number[j];
-​    while(ia < n1 && ib < n2)
-​    {
-​        if(*(A+ia) <= *(B+ib))
-​            *(number+i++) = *(A+ia++);
-​        else
-​            *(number+i++) = *(B+ib++);
-​    }
-​    int end = n1+n2;
-​    while(i < end)
-​    {
-​        if(ia < n1)
-​            *(number+i++) = *(A+ia++);
-​        else
-​            *(number+i++) = *(B+ib++);
-​    }
-​    return;
+    int n1=p-q+1,n2=r-q;
+    int *B = &number[q],*C = &number[p];
+    int ia=0,ib=0,i=0;
+    int *A=(int *)malloc(sizeof(int)*n1);
+    for(int j=0,x=p; j<n1; j++)
+        *(A+j)=number[x++];
+    while(ia < n1 && ib < n2)
+    {
+        if(*(A+ia) <= *(B+ib))
+            *(C+i++) = *(A+ia++);
+        else
+            *(C+i++) = *(B+ib++);
+    }
+    int end = n1+n2;
+    while(i < end)
+    {
+        if(ia < n1)
+            *(C+i++) = *(A+ia++);
+        else
+            *(C+i++) = *(B+ib++);
+    }
+    return;
 }
 ```
 
@@ -108,7 +108,7 @@ void Merge_sort(int number,int p,int r)
 	{
         int q = (p+r)/2;
         Merge_sort(number,p,q);
-        Merge_sort(number,q,r);
+        Merge_sort(number,q+1,r);
         Merge(number,p,q,r);
      }
     return;    

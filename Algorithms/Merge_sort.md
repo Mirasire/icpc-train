@@ -44,7 +44,7 @@ while(i < m+n)
 void Merge(int *number,int p,int q,int r)
 {
 	int n1=p-q+1,n2=r-q;
-	int *B = number[q];
+	int *B = &number[q];
 	int ia=0,ib=0,i=0;
 	int *A=(int *)malloc(sizeof(int)*n1);
 	for(int j=0; j<n1; j++)
@@ -96,7 +96,6 @@ void Merge(int *number,int p,int q,int r)
 2. 调用Merge_sort(number,p,q)
 3. 调用Merge_sort(number,q,r)
 4. 调用外部函数Merge(number,p,q,r)	//就是上面那个排序程序
-5. 
 ```c
 void Merge_sort(int number,int p,int r)
 {

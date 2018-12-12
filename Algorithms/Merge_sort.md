@@ -110,7 +110,7 @@ void Merge_sort(int number,int p,int r)
         Merge_sort(number,p,q);
         Merge_sort(number,q+1,r);
         Merge(number,p,q,r);
-     }
+    }
     return;    
 }
 ```

@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void Merge(int *number,int q,int p,int r); //用来排序
-void Merge_sort(int *number,int q,int r); //用来拆数组
+void Merge(int *number,int p,int q,int r); //用来排序
+void Merge_sort(int *number,int p,int r); //用来拆数组
 void print(int *number,int n);
 
 int main()
@@ -27,8 +27,9 @@ void Merge(int *number,int p,int q,int r)
     int ia=0,ib=0,i=0;
     int *B = &number[q+1],*C = &number[p];
     int *A = (int *)malloc(sizeof(int)*n1);
-    for(int i=0,j=p; i<n1; i++)
-        A[i] = number[j++];
+    A = (int *)malloc(sizeof(int)*n1);
+    for(int x=0,j=p; x<n1; x++)
+        A[x] = number[j++];
     while(ia < n1 && ib < n2)
     {
         if(*(A+ia) <= *(B+ib))
@@ -39,7 +40,7 @@ void Merge(int *number,int p,int q,int r)
     int end = n1+n2;
     while(i < end)
     {
-        if(ia <= ia)
+        if(ia < n1)
             *(C+i++) = *(A+ia++);
         else
             *(C+i++) = *(B+ib++);
@@ -55,7 +56,7 @@ void Merge_sort(int *number,int p,int r)
         return;
     else
     {
-        int q = (p+r)/2;
+        int q=(p+r)/2;
         Merge_sort(number,p,q);
         Merge_sort(number,q+1,r);
         Merge(number,p,q,r);

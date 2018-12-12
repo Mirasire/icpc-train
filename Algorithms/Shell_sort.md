@@ -6,7 +6,7 @@
 ### 程序思路
 - 确定递增数列
 - 开始排序
-	- 
+- 
 ### 图表演示
 
 >对应的颜色进行(插入)排序
@@ -39,11 +39,11 @@ for(int span=n/2; span>0; span/=2)
 ```c
 for(int span=n/2; span>0; span/=2)
 {
-	int start = span,end = 2*span;
-	while(start < span)
-	{
-		for(int i=start; i<n; i+=span)
-		{
+    int start = span,end = 2*span;
+    while(start < span)
+    {
+        for(int i=start; i<n; i+=span)
+        {
             int key=number[i],j=i-span;
             while(j>=0 && key < number[j])
             {
@@ -51,9 +51,9 @@ for(int span=n/2; span>0; span/=2)
                 number[j] = key;
                 j-=span
             }
-		}
+        }
         start++;
-	}
+    }
 }
 ```
 **Code-2**
@@ -66,18 +66,18 @@ shellsort（ElementType A[],int N）
 {
     int i,j,Increment;
     ElementType Tmp;
-    
+
     for(int Increment = N/2; Increment > 0; Increment /= 2)
-		for(i = Increment; i<N; i++)
-		{
+        for(i = Increment; i<N; i++)
+        {
             Tmp = A[i];
             for(j=i; j>= Increment; j-=Increment)
-            	if(Tmp < A[j-Increment])
-            		A[j] = A[j-Increment];
-            	else
-            		break;
+                if(Tmp < A[j-Increment])
+                    A[j] = A[j-Increment];
+                else
+                    break;
             A[j] = Tmp;
-		}
+        }
 }
 ```
 

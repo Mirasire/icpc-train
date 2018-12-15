@@ -1,13 +1,14 @@
 #  希尔排序(Shell sort)
+> If you want something you've never had, then you've got to do something you've never Done.
+>  ~~说明~~
+> ~~程序里面的增量序列为n/2即为一般增量序列~~
 
->If you want something you've never had, then you've got to do something you've never Done.
-~~说明~~
-~~程序里面的增量序列为n/2即为一般增量序列~~
 ### 程序思路
 - 确定递增数列
 - 开始排序
-- 
-### 图表演示
+## 1.  懵懂
+
+####  图表演示
 
 >对应的颜色进行(插入)排序
 
@@ -21,7 +22,7 @@
 > > 可能上面不够清晰表达希尔排序的思想
 > > show you the code
 
-### Code
+####  Code
 
 **Code-1**
 
@@ -80,6 +81,12 @@ shellsort（ElementType A[],int N）
         }
 }
 ```
+## 2. 焉知
+#### **增量序列**
+
+
+希尔排序的时间复杂度和它的增量序列有关，<font size=5>增量序列</font>为每次选择数字的<font size=5>间隔数</font>
+希尔排序突破了时间复杂度为<a href="https://www.codecogs.com/eqnedit.php?latex=O\left&space;(&space;n^{2}&space;\right&space;)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?O\left&space;(&space;n^{2}&space;\right&space;)" title="O\left ( n^{2} \right )" /></a>的限制，当然最坏的情况下时间复杂度依然为<a href="https://www.codecogs.com/eqnedit.php?latex=O\left&space;(&space;n^{2}&space;\right&space;)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?O\left&space;(&space;n^{2}&space;\right&space;)" title="O\left ( n^{2} \right )" /></a>
 
 
 

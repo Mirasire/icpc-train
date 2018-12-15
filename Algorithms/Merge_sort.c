@@ -9,7 +9,7 @@ int main()
 {
     int number[17]={6,12,3,5,2,6,1322,7,8,98,63,23,98,77,23,56,107};
     print(number,17);
-    Merge_sort(number,0,17);
+    Merge_sort(number,0,16);
     return 0;
 }
 
@@ -27,7 +27,6 @@ void Merge(int *number,int p,int q,int r)
     int ia=0,ib=0,i=0;
     int *B = &number[q+1],*C = &number[p];
     int *A = (int *)malloc(sizeof(int)*n1);
-    A = (int *)malloc(sizeof(int)*n1);
     for(int x=0,j=p; x<n1; x++)
         A[x] = number[j++];
     while(ia < n1 && ib < n2)

@@ -51,9 +51,7 @@ void Merge(int *number,int p,int q,int r)
 
 void Merge_sort(int *number,int p,int r)
 {
-    if(p >= r)
-        return;
-    else
+    if(p < r)
     {
         int q=(p+r)/2;
         Merge_sort(number,p,q);

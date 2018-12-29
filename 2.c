@@ -1,3 +1,5 @@
+//Wirte by meskill
+//why not take a tea?
 #include <stdio.h>
 
 int main()

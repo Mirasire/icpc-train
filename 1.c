@@ -1,3 +1,5 @@
+//write by meskill
+//qwq
 #include <stdio.h>
 
 int main()

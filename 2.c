@@ -1,5 +1,6 @@
 //Wirte by meskill
 //why not take a tea?
+//sooooo sorry that a tooke a stupid mistake
 #include <stdio.h>
 
 int main()
@@ -21,7 +22,6 @@ int main()
         if(j%4 == 0) printf("\n");
     }
     printf("\n");
-    index--;
     printf("average  = %.1f",sum*1.0/index);
     return 0;
 }

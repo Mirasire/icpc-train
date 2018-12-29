@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 
-int nums[50000];
+static int nums[50000];
 
 int main()
 {
@@ -18,16 +18,16 @@ int main()
             sum += *(nums+i) * overlap;
             i+=overlap;
         }
-        int package = sum/2,ed = i;
+        int package = sum/2,ed = i-1;
         //printf("%d\n",package);
         int *dp = (int *)malloc(sizeof(int)*(package+1));
-        memset(dp,0,sizeof(dp));
+        memset(dp,0,sizeof(int)*(package+1));
         for(int i=0; i<ed; i++)
         {
             for(int j=package; j>=nums[i]; j--)
             {
                 if(j - nums[i] >= 0)
-                dp[j] = dp[j-nums[i]] + nums[i] > dp[j] ? dp[j-nums[i]] + nums[i] : dp[j];
+                    dp[j] = dp[j-nums[i]] + nums[i] > dp[j] ? dp[j-nums[i]] + nums[i] : dp[j];
             }
         }
         printf("%d %d\n",sum-dp[package],dp[package]);

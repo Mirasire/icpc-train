@@ -7,7 +7,7 @@ static int nums[50000];
 int main()
 {
     int n;
-    while(scanf("%d",&n) != EOF && n != -1)
+    while(~scanf("%d",&n),n>0)
     {
         int sum = 0,overlap,i=0;
         while(n--)
@@ -35,3 +35,15 @@ int main()
     }
     return 0;
 }
+
+
+/*
+conclution:
+输入未确定数字却有明确的结束标志的时候判断条件
+要用
+while(~scanf("%d",&n),n>0)
+如果改用
+while(scanf("%d",&n)&&n>0)
+可能会出错(时间效率过低或者编译器反向编译
+)
+*/

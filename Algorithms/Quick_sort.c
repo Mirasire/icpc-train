@@ -31,6 +31,7 @@ int Pivot(int *arr,int p,int r)
             *(arr+pj--) = temp;
         }
     }
+    //将枢纽元插入
     for(int i=r; i>pj && i>0; i--)
         *(arr+i) = *(arr+i-1);
     *(arr+pi) = key;

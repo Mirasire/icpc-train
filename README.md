@@ -5,3 +5,8 @@ learn in TKK
 how to learn about c?
 ~~first~~
 ~~of sure i don't konw~~
+1.2
+POJ
+XUJCOJ
+HDUOJ
+

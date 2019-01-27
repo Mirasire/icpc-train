@@ -1,4 +1,9 @@
-//from https://practice.geeksforgeeks.org/problems/linked-list-insertion/1
+/* *************************************************************************
+ * from https://practice.geeksforgeeks.org/problems/linked-list-insertion/1*
+ * or                                                                      *
+ * see the problem description the LinklistedListInsertion.md              *
+ * *************************************************************************
+ * */
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>

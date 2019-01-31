@@ -1,3 +1,4 @@
+//AC but donnot whay
 #include <stdio.h>
 #include <limits.h>
 

@@ -34,8 +34,8 @@ bool Equal(NODE a,NODE b)
 
 bool limite(NODE a)
 {
-    if((a.x>=0 && a.x<X) && (a.y>=0 && a.y<Y) && (a.floor>=0 && a.floor<Floor)) return true;
-    else return false;
+    if(a.x < 0 || a.x >= X || a.y >= Y || a.y < 0 || a.floor<0 || a.floor >= Floor) return false;
+    else return true;
 }
 
 int bfs(NODE x,NODE E)
@@ -54,7 +54,7 @@ int bfs(NODE x,NODE E)
             next.floor = now.floor+dirz[i];
             next.step = now.step+1;
             if(Equal(E,next)) return next.step;
-            if( limite(next) && plat[next.x][next.y][next.floor] && !visite[next.x][next.y][next.floor]) 
+            if(limite(next) && plat[next.x][next.y][next.floor] && !visite[next.x][next.y][next.floor]) 
             {
                 visite[next.x][next.y][next.floor]=1; 
                 Link.push(next);
@@ -86,11 +86,13 @@ int main()
                     cin >> in;
                     if(in == 'S')
                     {
-                        visite[x][y][floor]=1;
                         st.x = x;
                         st.y = y;
                         st.floor = floor;
                         st.step = 0;
+                        //WA-Reason
+                        //visite[x][y][floor]=1;
+                        //if Delete it , This Programmer Can be Accecept;
                     }
                     else if(in == 'E')
                     {

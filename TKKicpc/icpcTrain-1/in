@@ -1,5 +1,11 @@
-2
-1 1 1 1
-1 1 2 2
-1 1 2 1
-1 1 1 2
+def six 6
+def abc 1
+def bcd 0
+sub bcd abc
+add abc six
+def universe 0
+mul abc six
+add universe abc
+div bcd six
+mod bcd abc
+

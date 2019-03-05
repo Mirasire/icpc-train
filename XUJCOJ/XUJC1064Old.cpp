@@ -52,6 +52,7 @@ int bfs(NODE x,NODE ED)
             if(limite(next.x,next.y) && !visite[next.x][next.y])
             {
                 if(next.Rocket) visite[next.x][next.y]=1;
+		else Rvisite[next.x][next.y]=1;
                 ADT.push(next);
             }
         }
@@ -93,6 +94,7 @@ int main()
                 st.y = j;
                 flag = 0;
                 visite[i][j]=1;
+                Rvisite[i][j]=1;
             }
             else if(plat[i][j] == 0)
             {

@@ -11,6 +11,7 @@ int Prime[N]={0};
 
 isNotPrime[0] = isNotPrime[1] = 1;
 int nums = 0;
+
 for(int i=0; i<N; i++)
 {
     if(!isNotPrime[i]) Prime[nums++] = i;
@@ -21,9 +22,9 @@ for(int i=0; i<N; i++)
     }
 }
 ```
-# Q-1为什门要使用这样子的打表？
+# Q-1为什么要使用这样子的打表？
 
-```c
+```C++
 /*------Old Version-----*/
 
 #define N 100001

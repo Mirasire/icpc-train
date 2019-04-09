@@ -21,8 +21,11 @@ int main()
         number[j]%=Scale;
     }
     if(add!=0) number[j++] = add;
+    //prt(add);
     for(int i=0; i< j/2; i++)
         swap(number[i],number[j-1-i]);
+    //for(int i=0; i<j; i++) printf("%c ",number[i] + 'a');
+    //printf("\n");
     int index = 0;
     int flag = 0;
     if(a[0]=='a' || b[0]=='a') flag=1;
@@ -39,3 +42,5 @@ int main()
     printf("\n");
     return 0;
 }
+
+        

@@ -31,4 +31,4 @@
 
 ##### Child-Sibling 表示法
 
-将 Child-Sibling 表示法 旋转 45度 就可以得到 二叉树
+将 Child-Sibling 表示法 旋转 45度 就可以得到 二叉树 因此 二叉树 被称之为 基础！

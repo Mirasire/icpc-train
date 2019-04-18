@@ -6,6 +6,7 @@
 #include <algorithm>
 using namespace std;
 
+#define prt(x) printf(#x " = %d\n",x) 
 const int maxn = 15;
 const int mazeMax = 150;
 int n,m;
@@ -19,7 +20,7 @@ struct Node
     void insert(int a,int b) {x=a;y=b;step=0;}
 };
 int NumberSize[2];
-int dir[4][2] = {{0,1},{0,-1},{1,0},{-1,0}};
+int dir[4][2] {{0,1},{0,-1},{1,0},{-1,0}};
 int totol,Min;
 Node save[2][mazeMax]; 
 
@@ -30,9 +31,9 @@ bool jude(Node A)
 
 void bfs(Node a,Node b,int statu,int index)
 {
-    int cnt = 0,Step = 0;
+    int cnt = 0,Step = 0,add = 0;
     Node now,next;
-    if(statu) NumberSize[index] = 0;
+    NumberSize[index] = 0;
     queue<Node> List;
     List.push(a);
     if(statu==0) List.push(b);
@@ -54,7 +55,11 @@ void bfs(Node a,Node b,int statu,int index)
         Step = now.step;
     }
     if(statu) totol+=cnt;
-    else if(totol==cnt) Min = min(Min,Step);
+    else
+    {
+        prt(Step);
+        Min = min(Min,Step);
+    }
 }
 
 
@@ -83,6 +88,7 @@ int FindWay()
 int main()
 {
     int T,cnt=0;
+    freopen("in","r",stdin);
     scanf("%d",&T);
     while(T--)
     {
@@ -96,12 +102,14 @@ int main()
         if(flag == -1) printf("-1\n");
         else
         { 
+            //prt(NumberSize[0]);
+            //prt(NumberSize[1]);
             if(totol <= 2) Min = 0;
             else if(flag == 2)
             {
-                int end1 = NumberSize[0],end2=NumberSize[1];
-                for(int i=0; i<end1; i++)
-                    for(int j=0; j<end2;j++)
+                cout << "222222222222\n";
+                for(int i=0; i<NumberSize[0]; i++)
+                    for(int j=0; j<NumberSize[1]; j++)
                     {
                         memset(visite,0,sizeof(visite));
                         bfs(save[0][i],save[1][j],0,0);
@@ -109,9 +117,8 @@ int main()
             }
             else 
             {
-                int end1 = NumberSize[0];
-                for(int i=0; i<end1; i++)
-                    for(int j=i+1; j<end1; j++)
+                for(int i=0; i<NumberSize[0]; i++)
+                    for(int j=i+1; j<NumberSize[0]; j++)
                     {
                         memset(visite,0,sizeof(visite));
                         bfs(save[0][i],save[0][j],0,0);

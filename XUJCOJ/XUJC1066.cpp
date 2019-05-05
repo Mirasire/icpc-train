@@ -1,0 +1,17 @@
+#include <cstdio>
+#include <cstring>
+#include <string>
+using namespace std;
+
+const int maxn = 2e5;
+char str[maxn];
+
+int main(){
+    int n;
+    scanf("%d",&n);
+    while(n--){
+        string out;
+        scanf(" %[^\n]",str);
+        int lon = strlen(str);
+        for(int i=lon-1; i>0; i--){
+            if(str[i-1] == ' ') out = 

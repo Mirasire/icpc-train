@@ -18,26 +18,27 @@ int fi(int id){
 void unite(int a,int b) {
     int r_a  = fi(a);
     int r_b  = fi(b);
-    f[max(a,b)] = min(a,b);
+    f[max(r_a,r_b)] = min(r_a,r_b);
     return;
 }
 
 void bfs(int id){
-    if(vis[id]) return;
     int now,i,sz;
-    priority_queue<int,vector<int>,greater<int>> List;
+    priority_queue<int,vector<int>,greater<int> > List;
     List.push(id);
     while(!List.empty()){
         now = List.top();
         List.pop();
-        if(!vis[now] && now != 0) {
+        if(now != 0){
             cnt++;
-            vis[now] = 1;
             printf("%d%c",now," \n"[cnt==n]);
         }
         sz = nxt[now].size();
         for(i=0; i<sz; i++) {
-            if(!vis[nxt[now][i]]) List.push(nxt[now][i]);
+            if(!vis[nxt[now][i]]){
+                vis[nxt[now][i]]  = 1;
+                List.push(nxt[now][i]);
+            }
         }
     }
     return;

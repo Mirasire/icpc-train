@@ -11,7 +11,7 @@ int main() {
     ll tmp;
     freopen("in","r",stdin);
     while(scanf("%lld%lld%lld",&a,&p,&b) == 3) {
-        if(!(a%p) || !(p%a)) printf("daishixiongzuishuai\n");
+        if( (!(a%p) || !(p%a) ) && a!=1 && p !=1 ) printf("daishixiongzuishuai\n");
         else {
             x = 0;
             tmp = 1;
@@ -25,7 +25,7 @@ int main() {
     }
     return 0;
 }
-
+//moxianbao
 
             
 

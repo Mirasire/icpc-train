@@ -1,5 +1,6 @@
 //Pass 8A turn 
 //pass 9A turn on O2
+//Pass All use O2 && 快读读取
 #include <algorithm>
 #include <cstdio>
 #include <string.h>
@@ -12,6 +13,25 @@ bool vis[max_id];
 int id[max_id],block,ans;
 int cnt[max_id];
 int anss[max_id];
+
+int read(void) {
+    char x;
+    while((x = getchar()) > '9' || x <'0');
+    int u = x-'0';
+    while((x=getchar()) <= '9' && x >= '0') u = (u<<3) + (u<<1) + x - '0';
+    return u;
+}
+int buf[105];
+inline void write(int i) {  
+    int p = 0;  
+    if(i == 0) p++;  
+    else while(i) {  
+        buf[p++] = i % 10;  
+        i /= 10;  
+    }  
+    for(int j = p-1; j >= 0; j--) putchar('0' + buf[j]);  
+}
+
 
 struct TYPE{
     int num,l,r;
@@ -37,13 +57,14 @@ int main() {
     //freopen("in","r",stdin);
     int n,m,l,r,i;
     int tl,tr;
-    scanf("%d",&n);
-    for(i=1; i<=n; i++) scanf("%d",id+i);
-    scanf("%d",&m);
+    n = read();
+    for(i=1; i<=n; i++) id[i] = read();
+    m = read();
 
     block = n/sqrt(m*2/3);
     for(i=1; i<=m; i++) {
-        scanf("%d%d",&si[i].l,&si[i].r);
+        si[i].l = read();
+        si[i].r = read();
         si[i].num = i;
     }
     sort(si+1,si+1+m,cmp);
@@ -59,7 +80,10 @@ int main() {
         while(r > tr) del(r--);
         anss[si[i].num] = ans;
     }
-    for(i=1; i<=m; i++) printf("%d\n",anss[i]);
+    for(i=1; i<=m; i++) {
+        write(anss[i]);
+        putchar('\n');
+    }
     return 0;
 }
 

@@ -1,73 +1,59 @@
 #include <iostream>
-#include <cstdio>
-#include <algorithm>
-#include <string.h>
 #include <cmath>
+#include <algorithm>
+#include <cstdio>
+#include <cstring>
 using namespace std;
 
-typedef long long int ll;
-const int maxn = 200100;
-ll k[maxn],out[maxn],times[maxn],b[maxn];
+const int maxn = 2e5+100;
+int l[maxn],r[maxn],belong[maxn],num,block;
+int cost[maxn],out[maxn];
+int n,m,k[maxn],op,def,idx,ans;
 
-struct DIS {
-    int l,r;
-} dis[maxn];
+void build(int n) {
+    block = sqrt(n);
+    num = n/block; if(n%block) num++;
+    for(int i=1; i<=num; i++)
+        l[i] = (i-1) * block + 1,r[i] = i*block;
+    r[num] = n;
+    for(int i=1; i<=n; i++)
+        belong[i] = (i-1)/block + 1;
+}
 
-void dp(int l,int r) {
-    for(int i=r; i>=l; i--) {
-        if(i + k[i] > dis[b[i]].r) {
-            times[i] = 1;
-            out[i] = i + k[i];
+void update(int left,int right) {
+    for(int i=right; i>=left; i--) {
+        if(i+k[i] > r[belong[i]] ) {
+            cost[i] = 1;
+            out[i] = i+k[i];
         } else {
-            times[i] = 1+times[i+k[i]];
+            cost[i] = cost[i+k[i]] + 1;
             out[i] = out[i+k[i]];
         }
     }
-    return;
 }
 
 int main() {
-    freopen("in","r",stdin);
-    int i,n,m;
+    //freopen("in","r",stdin);
     scanf("%d",&n);
-    for(i=0; i<n; i++) scanf("%lld",k+i);
-
-    //cut arr
-    int block = sqrt(n),s = 0;
-    if(block*block < n) block++;
-    for(i=0; i<n; i+=block) {
-        dis[s].l = i;
-        dis[s++].r = i+m-1;
-    }
-
-    if(s<block) {
-        dis[s].l = i-block+1;
-        dis[s++].r = n-1;
-    }
-    
-    for(i=0,s=0; i<n; i++) {
-        if(i>dis[s].r) s++;
-        b[i] = s;
-    }
-    
-    dp(0,n-1);
-
+    for(int i=1; i<=n; i++) scanf("%d",k+i);
+    build(n);
+    update(1,n);
     scanf("%d",&m);
-    int op,query,j,def,index;
-    ll ans;
     while(m--) {
-        scanf("%d",&op);
-        if(op == 1) {
-            scanf("%d",&query);
-            ans = times[query],index = out[query];
-            for(i=b[i]; i<m&&index<n; i++,index = out[index]) ans += times[index];
-            printf("%lld\n",ans);
+        scanf("%d%d",&op,&idx);
+        idx++;
+        if(op == 2) {
+            scanf("%d",&def);
+            k[idx] = def;
+            update(l[belong[idx]],r[belong[idx]]);
         } else {
-            scanf("%d%d",&j,&def);
-            k[j] = def;
-            dp(dis[b[j]].l,dis[b[i]].r);
+            ans = 0;
+            while(idx <= n && belong[idx] <= num) {
+                ans += cost[idx];
+                idx = out[idx];
+            }
+            printf("%d\n",ans);
         }
     }
-    return 0;
+    //return 0;
 }
-

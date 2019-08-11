@@ -1,7 +1,0 @@
-compare
-
-dot -Tpng xxx.dot -o xxx.png
-
-see
-
-eog xxx.png

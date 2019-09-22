@@ -53,16 +53,20 @@ int main() {
 
 ## B - Multiplication Table
 ### 题意
+
+
 给出如下表格
-||a1|a2|a3|...|
+
+|M|a1|a2|a3|...|
 |:--:|:--:|:--:|:--:|:--:|
 |a1|0|a1&times;a2|a1&times;a3|...|
 |a2|a2&times;a1|0|a2&times;a3|...|
 |a3|a3&times;a1|a3&times;a2|0|...|
 |...|...|...|...|0|
+
 求**a1到an**的数,题目保证n>=3
 
-## 题解
+### 题解
 
 $$
 \begin{aligned}
@@ -113,6 +117,7 @@ int main() {
 ```
 
 ## C - Substring Game in the Lesson
+
 ### 题意
 **Ann** 和 **Mike** 在完游戏, 游戏规则如下:
 - 给出一段长度为s的字符串，**先手**是Ann。

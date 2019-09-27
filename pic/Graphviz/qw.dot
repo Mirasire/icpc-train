@@ -1,0 +1,9 @@
+digraph LinkedList{
+    node [shape = record]
+    rankdir = LR;
+    head  [label="{&nbsp; head &nbsp; |next}"]
+    node1 [label=" {&nbsp; Data1 &nbsp;| next}"];
+    node2 [label=" {&nbsp; Data2 &nbsp;| next}"];
+    node3 [label=" {&nbsp; Data3 &nbsp;| next}"];
+    head->node1->node2->node3;
+}

@@ -1,1 +1,1 @@
-dot qw.dot -Tpng -o test.png
+dot LD.dot -Tpng -o LinkList_Delete.png

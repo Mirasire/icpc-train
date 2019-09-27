@@ -1,6 +1,6 @@
 digraph LinkedList{
     node [shape = record]
-    splines = line;
+    splines = false;
     rankdir = LR;
     subgraph cluster_0{
         color = transparent;

@@ -5,5 +5,6 @@ digraph LinkedList{
     node1 [label=" {&nbsp; Data1 &nbsp;| next}"];
     node2 [label=" {&nbsp; Data2 &nbsp;| next}"];
     node3 [label=" {&nbsp; Data3 &nbsp;| next}"];
-    head->node1->node2->node3;
+    node4 [label=" {&nbsp; Data4 &nbsp;| ^ }"];
+    head->node1->node2->node3->node4;
 }

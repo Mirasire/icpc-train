@@ -1,24 +1,31 @@
-#include <iostream>
-#include <cstring>
 #include <cstdio>
 #include <algorithm>
-#include <vector>
 using namespace std;
 
-vector<int> e[12];
-int head[12];
+int mp[12][12];
 
 int main() {
     int n,m,tmp1,tmp2;
-    cin >> n >> m;
+    scanf("%d%d",&n,&m);
 
-    int sum = 0;
     for(int i=1; i<=m; i++) {
-        cin >> tmp1 >> tmp2;
-        e[tmp1].push_back(tmp2);
-		head[tmp2++];
-		head[tmp2]++;
-        e[tmp2].push_back(tmp1);
+        scanf("%d%d",&tmp1,&tmp2);
+        mp[tmp1][tmp2] = mp[tmp2][tmp1] = 1;
     }
+    if(n<=6) {
+        printf("%d",m);
+        return 0;
+    }
+    int res = 56;
+    for(int i=1; i<=7; i++) {
+        for(int j=i+1; j<=7; j++) {
+            int cnt = 0;
+            for(int k=1; k<=7; k++) {
+                if(mp[i][k]&&mp[j][k]) cnt++;
+            }
+            res = min(res,cnt);
+        }
+    }
+    printf("%d",m-res);
     return 0;
 }

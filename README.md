@@ -1,5 +1,6 @@
-../study-notes
-├── Algorithms
+
+
+├── Algorithms 
 │   ├── Base_Math.md
 │   ├── Grapth
 │   │   ├── Flow

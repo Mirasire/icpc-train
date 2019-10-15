@@ -1,6 +1,0 @@
-digraph draw{
-	rankdir = LR;
-	subgraph cluster_0{
-	}
-}
-

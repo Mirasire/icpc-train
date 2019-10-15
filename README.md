@@ -1,6 +1,7 @@
-Contents
+# CONTENTS
 
-```
+```file
+study-notes
 ├── Algorithms
 │   ├── Base_Math.md
 │   ├── Grapth

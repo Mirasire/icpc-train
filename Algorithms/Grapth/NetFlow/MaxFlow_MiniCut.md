@@ -2,6 +2,7 @@
 
 ## 最大流
 
-![MaxFlow](../../../pic/Graph/NetWork/MaxFlow1.png)
+![MaxFlow]()
+
 
 ## 最小割

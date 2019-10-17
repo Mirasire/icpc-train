@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+find . -name "a.out" -exec rm -rf {} \;
+
+print \#Contens > Contents.md;
+
+print "" >> Contents.md;
+
+print \`\`\` >> Contents.md;
+
+tree ../study-notes >> Contents.md;
+
+print \`\`\` >> Contents.md;

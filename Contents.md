@@ -1,11 +1,11 @@
 #Contens
 
 ```
-../study-notes
+.
 ├── Algorithms
 │   ├── Basic
 │   ├── Datastructures
-│   ├── DP (dynamic programming)
+│   ├── DP
 │   ├── Graph theory
 │   │   ├── MST
 │   │   │   └── Kruskal.md
@@ -34,6 +34,7 @@
 │   │       ├── QuickPord.c
 │   │       ├── QuickPord.md
 │   │       └── 算法分析.md
+│   ├── Other
 │   ├── Search
 │   │   ├── 15591249128083.png
 │   │   ├── A_  search.pdf
@@ -52,8 +53,6 @@
 │   │   ├── Shell_sort.md
 │   │   └── teacher's code.cpp
 │   └── String
-│       ├── KMP
-│       └── TrieTree
 ├── Contents.md
 ├── CreatContents
 ├── Life In OJ
@@ -88,7 +87,6 @@
 │       │   ├── GlobalRound#3
 │       │   │   ├── A.cpp
 │       │   │   └── B.cpp
-│       │   ├── GlobalRound#5
 │       │   ├── Round#550
 │       │   │   ├── A.cpp
 │       │   │   ├── B.cpp
@@ -456,5 +454,5 @@
 │   └── README.md
 └── README.md
 
-80 directories, 373 files
+78 directories, 373 files
 ```

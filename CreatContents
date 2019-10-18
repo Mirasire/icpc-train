@@ -8,6 +8,6 @@ print "" >> Contents.md;
 
 print \`\`\` >> Contents.md;
 
-tree ../study-notes >> Contents.md;
+tree . >> Contents.md;
 
 print \`\`\` >> Contents.md;

@@ -2,7 +2,7 @@
 
 find . -name "a.out" -exec rm -rf {} \;
 
-print \#Contens > Contents.md;
+print "\# Contens" > Contents.md;
 
 print "" >> Contents.md;
 

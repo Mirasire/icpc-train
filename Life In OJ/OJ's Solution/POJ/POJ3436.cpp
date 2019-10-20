@@ -41,12 +41,16 @@ struct DINIC {
 		memset(head,-1,sizeof(head));
 		cnt=-1;
 	}
+	void init() {
+		memset(head,-1,sizeof(head));
+		cnt = -1;
+	}
 	void addEdge(int a,int b,int cap) {
 		edge[++cnt].init(b,head[a],0,cap,cnt^1); head[a] = cnt;
 		edge[++cnt].init(a,head[b],0,0,cnt^1); head[b] = cnt;
 	}
 	bool bfs() {
-		memset(vis,0,sizeof(vis));
+		for(int i=0; i<=cnt; i++) vis[i] = 0;
 		int now,i;
 		queue<int> list;
 		list.push(s);
@@ -57,6 +61,7 @@ struct DINIC {
 			list.pop();
 			for(i=head[now]; i!=-1; i=edge[i].next) {
 				EDGE& e = edge[i];
+				//cout << now << " --> " << e.to << " ff: " << e.cap - e.flow << endl;
 				if(!vis[e.to] && e.cap > e.flow) {
 					vis[e.to] = 1;
 					dis[e.to] = dis[now] + 1;
@@ -71,8 +76,8 @@ struct DINIC {
 		int f,flow = 0;
 		for(int& i = cur[now]; i!=-1; i=edge[i].next) {
 			EDGE& e = edge[i];
-			f = dfs(e.to,min(mff,e.cap - e.flow));
-			if(dis[e.to] == (dis[now] + 1) && f > 0) {
+			//f = dfs(e.to,min(mff,e.cap - e.flow));
+			if(dis[e.to] == (dis[now] + 1) && (f  = dfs(e.to,min(mff,e.cap-e.flow))) > 0) {
 				e.flow += f;
 				edge[e.rev].flow -= f;
 				flow += f;
@@ -104,48 +109,50 @@ void slove(int s,int t);
 
 int main() {
 	int s,t;
-	scanf("%d%d",&p,&n);
-	for(int i=1; i<=n; i++) {
-		scanf("%d",&inpt[i].val);
-		for(int j=0; j<p; j++) scanf("%d",&inpt[i].inp[j]);
-		for(int j=0; j<p; j++) scanf("%d",&inpt[i].out[j]);
-	}
-	//perdu
-	
-	//link to the source
-	s = 0;
-	t = n*2+1;
-	for(int i=1; i<=n; i++) {
-		bool flag=1;
-		for(int j=0; j<p&&flag; j++) {
-			if(inpt[i].inp[j]&1) flag=0;
+	while(~scanf("%d%d",&p,&n)) {
+		dinic.init();
+		for(int i=1; i<=n; i++) {
+			scanf("%d",&inpt[i].val);
+			for(int j=0; j<p; j++) scanf("%d",&inpt[i].inp[j]);
+			for(int j=0; j<p; j++) scanf("%d",&inpt[i].out[j]);
 		}
-		if(flag) dinic.addEdge(s,i,inf);
-	}
-
-	//拆点
-	for(int i=1; i<=n; i++) dinic.addEdge(i,i+n,inpt[i].val);
-
-	for(int u=1; u<=n; u++) {
-		for(int v=1; v<=n; v++) {
-			if(u==v) continue;
-			bool flag = 1;
-			for(int i=0; i<p&&flag; i++) {
-				if(inpt[u].out[i] != inpt[v].inp[i] && inpt[v].inp[i] != 2) flag = 0;
+		//perdu
+		
+		//link to the source
+		s = 0;
+		t = n*2+1;
+		for(int i=1; i<=n; i++) {
+			bool flag=1;
+			for(int j=0; j<p&&flag; j++) {
+				if(inpt[i].inp[j]==1) flag=0;
 			}
-			if(flag) dinic.addEdge(u+n,v,inf);
+			if(flag) dinic.addEdge(s,i,inf);
 		}
-	}
 
-	for(int i=1; i<=n; i++) {
-		bool flag=1;
-		for(int j=0; j<p&&flag; j++) {
-			if(inpt[i].out[j]!=1) flag=0;
+		//拆点
+		for(int i=1; i<=n; i++) dinic.addEdge(i,i+n,inpt[i].val);
+
+		for(int u=1; u<=n; u++) {
+			for(int v=1; v<=n; v++) {
+				if(u==v) continue;
+				bool flag = 1;
+				for(int i=0; i<p&&flag; i++) {
+					if(inpt[u].out[i] != inpt[v].inp[i] && inpt[v].inp[i] != 2) flag = 0;
+				}
+				if(flag) dinic.addEdge(u+n,v,inf);
+			}
 		}
-		if(flag) dinic.addEdge(i+n,t,inf);
-	}
 
-	slove(s,t);
+		for(int i=1; i<=n; i++) {
+			bool flag=1;
+			for(int j=0; j<p&&flag; j++) {
+				if(inpt[i].out[j]!=1) flag=0;
+			}
+			if(flag) dinic.addEdge(i+n,t,inf);
+		}
+
+		slove(s,t);
+	}
 	return 0;
 }
 

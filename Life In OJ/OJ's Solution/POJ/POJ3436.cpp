@@ -1,3 +1,5 @@
+//TLE Version
+//Meskill's Templata
 #include <iostream>
 #include <algorithm>
 #include <cstdio>
@@ -14,13 +16,13 @@ using namespace std;
 		for(int i=dinic.head[j]; i!=-1; i=dinic.edge[i].next) {
 			cout << j << "-->" << dinic.edge[i].to << endl;
 		}
- */
+*/
 
-const int Pmaxn = 70;
-const int MaxNode = Pmaxn*Pmaxn;
+const int Pmaxn = 200;
+const int MaxNode = Pmaxn*Pmaxn+50;
 const int inf = 0x3f3f3f3f;
 int p,n;
-int out[Pmaxn][3];
+int out[MaxNode][3];
 struct EDGE {
 	int to,next,flow,cap,rev;
 	EDGE(){}
@@ -34,7 +36,7 @@ struct EDGE {
 };
 
 struct DINIC {
-	EDGE edge[MaxNode];
+	EDGE edge[MaxNode<<1];
 	int cnt,s,t;
 	int dis[MaxNode],head[MaxNode],cur[MaxNode],vis[MaxNode];
 	DINIC() {
@@ -61,7 +63,6 @@ struct DINIC {
 			list.pop();
 			for(i=head[now]; i!=-1; i=edge[i].next) {
 				EDGE& e = edge[i];
-				//cout << now << " --> " << e.to << " ff: " << e.cap - e.flow << endl;
 				if(!vis[e.to] && e.cap > e.flow) {
 					vis[e.to] = 1;
 					dis[e.to] = dis[now] + 1;
@@ -76,7 +77,6 @@ struct DINIC {
 		int f,flow = 0;
 		for(int& i = cur[now]; i!=-1; i=edge[i].next) {
 			EDGE& e = edge[i];
-			//f = dfs(e.to,min(mff,e.cap - e.flow));
 			if(dis[e.to] == (dis[now] + 1) && (f  = dfs(e.to,min(mff,e.cap-e.flow))) > 0) {
 				e.flow += f;
 				edge[e.rev].flow -= f;
@@ -103,7 +103,7 @@ struct DINIC {
 //for save
 struct INPUT {
 	int val,inp[13],out[13];
-} inpt[60];
+} inpt[300];
 
 void slove(int s,int t);
 
@@ -163,7 +163,6 @@ void slove(int s,int t) {
 	for(int i=n+1; i<=end; i++) {
 		for(int j = dinic.head[i]; j!=-1; j=dinic.edge[j].next) {
 			EDGE& e = dinic.edge[j];
-			//cout << i << " --> " << e.to << " flow: " << e.flow << endl;
 			if(e.cap && e.flow && e.to <= n) {
 				out[ctt][0] = e.flow;
 				out[ctt][1] = i-n;

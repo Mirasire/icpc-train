@@ -1,3 +1,4 @@
+//AC Version
 #include <iostream>
 #include <algorithm>
 #include <cstdio>
@@ -92,14 +93,14 @@ int main() {
 	int p,n;
 	Dinic dinic;
 	while(~scanf("%d%d",&p,&n)) {
-		dinic.init(n*2+2);
+		dinic.init(n*2+5);
 		for(int i=1; i<=n; i++) {
 			scanf("%d",&val[i]);
 			for(int j=0; j<p; j++) scanf("%d",&in[i][j]);
 			for(int j=0; j<p; j++) scanf("%d",&out[i][j]);
 		}
 
-		//建图
+		//============建图============
 		int s = 0, t=n<<1|1;
 		for(int i=1; i<=n; i++) {
 			bool flag = 1;
@@ -111,7 +112,7 @@ int main() {
 			if(flag) dinic.AddEdge(s,i,INF);
 		}
 
-		//拆点
+		//============拆点============
 		for(int i=1; i<=n; i++) dinic.AddEdge(i,i+n,val[i]);
 
 		for(int i=1; i<=n; i++) {
@@ -119,7 +120,7 @@ int main() {
 				if(i==j) continue;
 				bool flag = 1;
 				for(int k=0; k<p; k++)
-					if(in[j][p] != out[i][p] && in[j][p] != 2) {
+					if(out[i][k] != in[j][k] && in[j][k] != 2) {
 						flag = 0;
 						break;
 					}
@@ -136,20 +137,27 @@ int main() {
 				}
 			if(flag) dinic.AddEdge(i+n,t,INF);
 		}
+		//============建图END============
+
+		
+		//============跑Dinic求最大流============
 		int mff = dinic.Maxflow(s,t);
 		int tt = 0;
+		//============寻找路径============
 		for(int i=n+1; i<t; i++) {
 			int end = dinic.G[i].size();
 			for(int j=0; j<end; j++) {
-				const Edge& e = dinic.edges[dinic.G[i][j]];
+				Edge e = dinic.edges[dinic.G[i][j]];
 				if(e.cap && e.flow > 0 && e.to <=n ) {
-					res[tt++][0] = e.flow;
-					res[tt++][1] = i-n;
-					res[tt++][2] = e.to;
+					res[tt][2] = e.flow;
+					res[tt][0] = i-n;
+					res[tt++][1] = e.to;
 				}
 			}
 		}
+
 		printf("%d %d\n",mff,tt);
+		//============路径输出============
 		for(int i=0; i<tt; i++) {
 			printf("%d %d %d\n",res[i][0],res[i][1],res[i][2]);
 		}

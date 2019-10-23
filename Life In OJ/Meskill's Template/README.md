@@ -1,9 +1,11 @@
+# Contest
 
-# 这里面主要收录icpc中常用的模板
+```cpp
+.
+├── MaxFlow
+│   ├── dinic_Kuangbin.cpp
+│   ├── dinic_lrj.cpp
+│   └── EK_lrj.cpp
+└── README.md
+```
 
-## 目前有的模板为
-
-- 图论
-	- 网络流
-		- Dinic算法
-	

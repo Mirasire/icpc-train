@@ -1,8 +1,4 @@
-##最大流和最小割
-
-### Dinic
-
-```cpp
+//Checked
 #define maxn 250
 #define INF 0x3f3f3f3f
 
@@ -79,4 +75,3 @@ struct Dinic {
     return flow;
   }
 };
-```

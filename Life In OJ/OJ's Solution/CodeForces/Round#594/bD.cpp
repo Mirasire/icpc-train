@@ -1,4 +1,3 @@
-//DP
 #include <iostream>
 #include <algorithm>
 #include <cstdio>
@@ -7,6 +6,5 @@
 using namespace std;
 
 int main() {
-	int n,m;
 	return 0;
 }

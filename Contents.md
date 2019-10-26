@@ -13,7 +13,7 @@
 │   │   │   ├── Basic.md
 │   │   │   ├── Dinic.cpp
 │   │   │   ├── draw.md
-│   │   │   ├── MaxFlow_MiniCut.md
+│   │   │   ├── MaxFlow.md
 │   │   │   └── try.png
 │   │   └── TopologicalSorting
 │   │       ├── dfsKanh.cpp
@@ -53,12 +53,19 @@
 │   │   ├── Shell_sort.md
 │   │   └── teacher's code.cpp
 │   └── String
+│       ├── AC自动机.md
+│       ├── KMP.md
+│       └── 字典树.md
 ├── Contents.md
 ├── CreatContents
+├── hello.cpp
 ├── Life In OJ
 │   ├── Meskill's Template
-│   │   ├── Main.md
-│   │   └── MaxFlow_Dinic.cpp
+│   │   ├── MaxFlow
+│   │   │   ├── dinic_Kuangbin.cpp
+│   │   │   ├── dinic_lrj.cpp
+│   │   │   └── ek_lrj.cpp
+│   │   └── README.md
 │   └── OJ's Solution
 │       ├── CodeForces
 │       │   ├── 2003To2004 ACM-ICPC Northeastern European Regional Contest (NEERC 03)
@@ -83,7 +90,7 @@
 │       │   │   ├── fD.cpp
 │       │   │   ├── in
 │       │   │   ├── Problems - Codeforces.pdf
-│       │   │   └── ReadME.md
+│       │   │   └── README.md
 │       │   ├── GlobalRound#3
 │       │   │   ├── A.cpp
 │       │   │   └── B.cpp
@@ -134,7 +141,7 @@
 │       │   │   ├── forSee.cpp
 │       │   │   ├── in
 │       │   │   ├── Problems - Codeforces.pdf
-│       │   │   └── ReadMe.md
+│       │   │   └── README.md
 │       │   ├── Round#588
 │       │   │   ├── A.cpp
 │       │   │   ├── B.cpp
@@ -143,7 +150,7 @@
 │       │   │   ├── forSee.cpp
 │       │   │   ├── in
 │       │   │   ├── Problems - Codeforces.pdf
-│       │   │   └── Readme.md
+│       │   │   └── README.md
 │       │   ├── Round#589
 │       │   │   ├── A.cpp
 │       │   │   ├── B.cpp
@@ -157,11 +164,21 @@
 │       │   │   ├── E.cpp
 │       │   │   ├── F.cpp
 │       │   │   ├── in
-│       │   │   └── Readme.md
+│       │   │   └── README.md
 │       │   ├── Round#592
 │       │   │   ├── A2.cpp
 │       │   │   ├── A.cpp
 │       │   │   ├── B.cpp
+│       │   │   └── in
+│       │   ├── Round#594
+│       │   │   ├── A.cpp
+│       │   │   ├── bC.cpp
+│       │   │   ├── B.cpp
+│       │   │   ├── bD.cpp
+│       │   │   ├── in
+│       │   │   ├── Problems - Codeforces.pdf
+│       │   │   └── README.md
+│       │   ├── Round#595
 │       │   │   └── in
 │       │   └── UKIEPC2017
 │       │       ├── 2017-united-kingdom-ireland-programming-contest-ukiepc-2017-en.pdf
@@ -259,6 +276,7 @@
 │       │   ├── P3203.cpp
 │       │   ├── P3366_2.cpp
 │       │   ├── P3366.cpp
+│       │   ├── P3367_2.cpp
 │       │   ├── P3371.cpp
 │       │   ├── P3375.cpp
 │       │   └── P4779.cpp
@@ -317,8 +335,10 @@
 │       │   ├── POJ3264.cpp
 │       │   ├── POJ3414.cpp
 │       │   ├── POJ3436.cpp
+│       │   ├── POJ3436_T.cpp
 │       │   ├── POJ3468.cpp
-│       │   └── POJ3667.cpp
+│       │   ├── POJ3667.cpp
+│       │   └── :wq
 │       ├── UVA
 │       │   ├── in
 │       │   ├── MakeTest.cpp
@@ -423,6 +443,10 @@
 │           ├── ZOJ1610.cpp
 │           └── ZOJ4109.cpp
 ├── pic
+│   ├── Blog
+│   │   ├── Hexo&github1.png
+│   │   ├── Hexo&&github2.jpg
+│   │   └── LearnArr1.java
 │   ├── DEBUG_option
 │   │   ├── a.png
 │   │   ├── a.PNG
@@ -438,6 +462,19 @@
 │   │   ├── t.PNG
 │   │   ├── u.png
 │   │   └── u.PNG
+│   ├── draw.io_pic
+│   │   ├── 2019-10-18
+│   │   │   ├── ACmt1.png
+│   │   │   ├── ACmt2.png
+│   │   │   ├── ACmt3.png
+│   │   │   └── Trie1.png
+│   │   ├── 2019-10-19
+│   │   │   ├── MF1.png
+│   │   │   └── MF2.png
+│   │   ├── 2019-10-20
+│   │   │   └── MF3_2.png
+│   │   └── 2019-10-23
+│   │       └── MF4.png
 │   ├── Graph
 │   │   └── NetWork
 │   │       ├── MaxFlow1.png
@@ -451,8 +488,37 @@
 │   │   ├── The DOT Language.pdf
 │   │   └── try.dot
 │   ├── Merge_sort.png
-│   └── README.md
+│   ├── README.md
+│   └── trash
+│       └── HomeWork
+│           ├── HomeWork.iml
+│           ├── out
+│           │   └── production
+│           │       └── HomeWork
+│           │           ├── Main.class
+│           │           ├── META-INF
+│           │           │   └── HomeWork.kotlin_module
+│           │           └── xyz
+│           │               └── mirasire
+│           │                   ├── BlackTea.class
+│           │                   ├── LSize.class
+│           │                   ├── MilkTea.class
+│           │                   ├── MSize.class
+│           │                   ├── OolongTea.class
+│           │                   ├── TakeAPI.class
+│           │                   └── XLSize.class
+│           └── src
+│               ├── Main.java
+│               └── xyz
+│                   └── mirasire
+│                       ├── BlackTea.java
+│                       ├── LSize.java
+│                       ├── MilkTea.java
+│                       ├── MSize.java
+│                       ├── OolongTea.java
+│                       ├── TakeAPI.java
+│                       └── XLSize.java
 └── README.md
 
-78 directories, 373 files
+98 directories, 419 files
 ```

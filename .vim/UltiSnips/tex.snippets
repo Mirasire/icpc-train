@@ -1,0 +1,19 @@
+#sign
+snippet sign "Signature"
+Yours sincerely,
+
+Meskill Liu
+endsnippet
+
+#show data
+snippet today "Date"
+`date +%F`
+endsnippet
+
+#make a box
+snippet box "Box"
+`!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
+│ $1 │
+`!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
+$0
+endsnippet

@@ -3,16 +3,10 @@
 #include <cstdio>
 #include <cstring>
 #include <string>
-#include <vector>
-#include <queue>
 using namespace std;
 
 #define INF 0x3f3f3f3f
-const int maxn = 70*70+50;
-int val[90];
-int in[90][12];
-int out[90][12];
-int res[maxn][4];
+const int maxn = 250;
 
 struct Edge {
 	int from, to, cap, flow;
@@ -89,70 +83,31 @@ struct Dinic {
 };
 
 int main() {
-	int p,n;
 	Dinic dinic;
-	while(~scanf("%d%d",&p,&n)) {
-		dinic.init(n*2+2);
-		for(int i=1; i<=n; i++) {
-			scanf("%d",&val[i]);
-			for(int j=0; j<p; j++) scanf("%d",&in[i][j]);
-			for(int j=0; j<p; j++) scanf("%d",&out[i][j]);
-		}
-
-		//建图
-		int s = 0, t=n<<1|1;
-		for(int i=1; i<=n; i++) {
-			bool flag = 1;
-			for(int j=0; j<p; j++)
-				if(in[i][j]==1) {
-					flag=0;
-					break;
-				}
-			if(flag) dinic.AddEdge(s,i,INF);
-		}
-
-		//拆点
-		for(int i=1; i<=n; i++) dinic.AddEdge(i,i+n,val[i]);
-
-		for(int i=1; i<=n; i++) {
-			for(int j=1; j<=n; j++) {
-				if(i==j) continue;
-				bool flag = 1;
-				for(int k=0; k<p; k++)
-					if(in[j][p] != out[i][p] && in[j][p] != 2) {
-						flag = 0;
-						break;
-					}
-				if(flag) dinic.AddEdge(i+n,j,INF);
-			}
-		}
-
-		for(int i=1; i<=n; i++) {
-			bool flag = 1;
-			for(int j=0; j<p; j++)
-				if(out[i][j]!=1) {
-					flag=0;
-					break;
-				}
-			if(flag) dinic.AddEdge(i+n,t,INF);
-		}
-		int mff = dinic.Maxflow(s,t);
-		int tt = 0;
-		for(int i=n+1; i<t; i++) {
-			int end = dinic.G[i].size();
-			for(int j=0; j<end; j++) {
-				const Edge& e = dinic.edges[dinic.G[i][j]];
-				if(e.cap && e.flow > 0 && e.to <=n ) {
-					res[tt++][0] = e.flow;
-					res[tt++][1] = i-n;
-					res[tt++][2] = e.to;
-				}
-			}
-		}
-		printf("%d %d\n",mff,tt);
-		for(int i=0; i<tt; i++) {
-			printf("%d %d %d\n",res[i][0],res[i][1],res[i][2]);
-		}
+	string name;
+	int p1[120]={0},p2[120]={0};
+	char tmp,tmp2;
+	int n,m,k;
+	int s = 0, t = 210;
+	cin >> n;
+	for(int i=0; i<n; i++) {
+		cin >> tmp;
+		p1[tmp-'A'+1]++;
 	}
+	for(int i=1; i<120; i++)
+		if(p1[i]) dinic.AddEdge(i,t,p1[i]);
+	cin >> m;
+	while(m--) {
+		cin >> name >> tmp;
+		p2[tmp-'A'+1]++;
+	}
+	for(int i=1; i<120; i++)
+		if(p2[i]) dinic.AddEdge(s,i,p2[i]);
+	cin >> k;
+	while(k--) {
+		cin >> tmp >> tmp2;
+		dinic.AddEdge(tmp-'A'+1,tmp2-'A'+1,INF);
+	}
+	cout << dinic.Maxflow(s,t);
 	return 0;
 }

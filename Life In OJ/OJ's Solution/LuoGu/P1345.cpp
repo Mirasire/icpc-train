@@ -1,40 +1,15 @@
-//割边数量为将图的容量改为1跑一遍dinic
-//Wrong Slution on question 2
-/*
- *	   Input
-		9 12
-		1 2 10
-		1 3 10
-		1 4 10
-		2 3 15
-		4 3 15
-		3 5 100
-		5 6 10
-		5 7 10
-		5 8 10
-		6 9 10
-		7 9 10
-		8 9 10
- *	   Output
- *	   30 2
- *
-*/
 #include <iostream>
 #include <algorithm>
 #include <cstdio>
 #include <cstring>
 #include <string>
-#include <algorithm>
 #include <vector>
+#include <map>
 #include <queue>
 using namespace std;
 
-/*for debug:
-	cout << "\nedge: " << i << " --> "  << e.to;
-*/
-
 #define INF 0x3f3f3f3f
-const int maxn = 42;
+const int maxn = 300;
 
 struct Edge {
 	int from, to, cap, flow;
@@ -111,16 +86,16 @@ struct Dinic {
 };
 
 int main() {
-	Dinic dinic,dinic2;
-	int n,m;
-	int a,b,c;
-	scanf("%d%d",&n,&m);
-	int s = 1, t = n;
+	Dinic dinic;
+	int n,m,s,t;
+	int a,b;
+	scanf("%d%d%d%d",&n,&m,&s,&t);
+	for(int i=1; i<=n; i++) dinic.AddEdge(i,i+n,1);
 	while(m--) {
-		scanf("%d%d%d",&a,&b,&c);
-		dinic.AddEdge(a,b,c);
-		dinic2.AddEdge(a,b,1);
+		scanf("%d%d",&a,&b);
+		dinic.AddEdge(a+n,b,INF);
+		dinic.AddEdge(b+n,a,INF);
 	}
-	printf("%d %d",dinic.Maxflow(s,t),dinic2.Maxflow(s,t));
+	printf("%d",dinic.Maxflow(s+n,t));
 	return 0;
 }

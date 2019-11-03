@@ -272,6 +272,8 @@
 │       │   ├── out2
 │       │   ├── P1046.cpp
 │       │   ├── P1047.cpp
+│       │   ├── P1344.cpp
+│       │   ├── P1345.cpp
 │       │   ├── P1361.cpp
 │       │   ├── P1428.cpp
 │       │   ├── P1494.cpp
@@ -350,7 +352,6 @@
 │       │   └── POJ3667.cpp
 │       ├── UVA
 │       │   ├── in
-│       │   ├── MakeTest.cpp
 │       │   ├── out
 │       │   ├── UVA10474.cpp
 │       │   ├── UVA1103
@@ -359,8 +360,9 @@
 │       │   ├── UVA11212_IDAstar.cpp
 │       │   ├── UVA11624
 │       │   ├── UVA11624.cpp
-│       │   ├── UVA11624FromInertnet.cpp
 │       │   ├── UVA11624.md
+│       │   ├── UVA1593.cpp
+│       │   ├── UVA1595.cpp
 │       │   ├── UVA272
 │       │   ├── UVA272.cpp
 │       │   ├── UVA572
@@ -533,5 +535,5 @@
 │                       └── XLSize.java
 └── README.md
 
-100 directories, 430 files
+100 directories, 432 files
 ```

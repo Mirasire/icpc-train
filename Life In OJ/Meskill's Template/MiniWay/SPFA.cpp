@@ -1,4 +1,4 @@
-const int Vmaxn = 1e4+100,Emaxn = 5e5+100,inf = 0x3f3f3f; //Vmaxn点的最大，Emaxn边的最大。
+const int Vmaxn = 1e4+1000,Emaxn = 5e5+100,inf = 2147483647; //Vmaxn最大点的个数，Emaxn边的最大个数，inf看情况更改
 
 struct EDGE{
 	int to,next,w;
@@ -9,10 +9,17 @@ struct SPFA {
 	bool vis[Vmaxn];
 	EDGE edge[Emaxn];
 
-	void init() {
+	SPFA() {
 		cnt = 0;
 		memset(head,-1,sizeof(head));
 		memset(vis,0,sizeof(vis));
+	}
+
+	void init(int n) {
+		cnt = 0;
+		n = n;
+		memset(head,-1,sizeof(int)*(n+1));
+		memset(vis,0,sizeof(bool)*(n+1));
 	}
 
 	void AddEdge(int a,int b,int w) {
@@ -22,7 +29,7 @@ struct SPFA {
 		head[a] = cnt;
 	}
 
-	void spfa(int s) {
+	void runSpfa(int s,int n) {
 		int now;
 		for(int i=0; i<=n; i++) d[i] = inf; //Re_Reason: n is error to m
 		queue<int> list;
@@ -45,4 +52,4 @@ struct SPFA {
 			}
 		}
 	}
-}
+};

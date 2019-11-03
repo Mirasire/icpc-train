@@ -64,6 +64,8 @@
 │   │   │   ├── dinic_Kuangbin.cpp
 │   │   │   ├── dinic_lrj.cpp
 │   │   │   └── ek_lrj.cpp
+│   │   ├── MiniWay
+│   │   │   └── SPFA.cpp
 │   │   └── README.md
 │   └── OJ's Solution
 │       ├── CodeForces
@@ -288,6 +290,7 @@
 │       │   ├── P3366.cpp
 │       │   ├── P3367_2.cpp
 │       │   ├── P3371.cpp
+│       │   ├── P3371_spfa.cpp
 │       │   ├── P3375.cpp
 │       │   └── P4779.cpp
 │       ├── NowCode
@@ -535,5 +538,5 @@
 │                       └── XLSize.java
 └── README.md
 
-100 directories, 432 files
+101 directories, 434 files
 ```

@@ -4,20 +4,24 @@
 #include <cstring>
 #include <string>
 #include <queue>
-#include <map>
 #include <vector>
 using namespace std;
 
-string str[120];
 struct ND {
-	int x,int y;
+	int x,y;
 	ND(){}
 	ND(int x,int y):x(x),y(y) {}
 };
 
+string l[120];
 vector<ND> man,house;
 
-const int N = 3e4 + 5, M = 3e4 + 5;
+//tmplate_Use
+//mcmf(s, t) return MaxFlow
+//ret means MinCost
+//addedge(u, v, w, c)
+
+const int N = 5e3 + 5, M = 1e5 + 5;
 const int INF = 0x3f3f3f3f;
 int n, m, tot = 1, lnk[N], cur[N], ter[M], nxt[M], cap[M], cost[M], dis[N], ret;
 bool vis[N];
@@ -68,18 +72,41 @@ int mcmf(int s, int t) {
 }
 
 int main() {
+	int h,w;
 	while(1) {
-		cin >> n >> m;
-		if(n==0&&m==0) break;
-		man.clear();
-		house.clear();
-		for(int i=0; i<m; i++) {
-			cin >> str[i];
-			for(int j=0; j<str[i].size(); j++) {
-				if(str[i][j] == 'm') man.push_back((i,j));
-				else if(str[i][j] == 'H') house.push_back((i,j));
+		cin >> h >> w;
+		if(!(h||w)) break;
+		//Init
+		man.clear(); house.clear();
+		memset(lnk,0,sizeof(lnk));
+		for(int i=0; i<h; i++) {
+			cin >> l[i];
+			for(int j=0; j<w; j++) {
+				if(l[i][j]=='m') man.push_back(ND(i,j));
+				else if(l[i][j]=='H') house.push_back(ND(i,j));
 			}
 		}
+		int msize = man.size(),hsize = house.size();
+		int s = (msize+hsize)*2+8,t = (msize+hsize)*2+9;
+		//s -> man
+		for(int i=0; i<msize; i++) addedge(s,i,1,0);
+		//t
+		for(int i=0; i<hsize; i++) {
+			addedge(msize+i,msize+hsize+i,1,0);
+			addedge(msize+hsize+i,t,INF,0);
+		}
+		//link
+		for(int i=0; i<msize; i++) {
+			ND& mm = man[i];
+			for(int j=0; j<hsize; j++) {
+				ND& hh = house[j];
+				int cost = abs(mm.x - hh.x) + abs(mm.y - hh.y);
+				addedge(i,j+msize,1,cost);
+			}
+		}
+		ret = 0;
+		mcmf(s,t);
+		cout << ret << endl;
 	}
 	return 0;
 }

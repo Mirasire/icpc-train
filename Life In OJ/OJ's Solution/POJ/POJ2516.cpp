@@ -5,23 +5,25 @@
 #include <string>
 #include <queue>
 #include <vector>
+#define debug(x) printf(#x " = %d\n",x)
 using namespace std;
-
-#define prt(x) printf(#x " = %d\n",x);
-
-int NN,MM,KK;
 
 
 //tmplate_Use
 //mcmf(s, t) return MaxFlow
 //ret means MinCost
-//addedge(u, v, captical, cost)
+//addedge(u, v, w, c)
 
 const int N = 5e3 + 5, M = 1e5 + 5;
 const int INF = 0x3f3f3f3f;
-int n, m, tot = 1, lnk[N], cur[N], ter[M], nxt[M], cap[M], cost[M], dis[N], ret;
+int tot = 1, lnk[N], cur[N], ter[M], nxt[M], cap[M], cost[M], dis[N], ret;
 bool vis[N];
 
+void init() {
+	memset(lnk,0,sizeof(lnk));
+	tot = 1;
+	ret = 0;
+}
 void add(int u, int v, int w, int c) {
 	ter[++tot] = v, nxt[tot] = lnk[u], lnk[u] = tot, cap[tot] = w, cost[tot] = c;
 }
@@ -58,7 +60,6 @@ int dfs(int u, int t, int flow) {
 	vis[u] = 0;
 	return ans;
 }
-
 int mcmf(int s, int t) {
 	int ans = 0;
 	while (spfa(s, t)) {
@@ -68,49 +69,53 @@ int mcmf(int s, int t) {
 	return ans;
 }
 
+//for tmp_save
+int arrSp[70][70],arrSuf[70][70],arrKds[70][70][70];
+
 int main() {
-	while(~scanf("%d%d%d",&NN,&MM,&KK)) {
-		int tmp;
-		if(!(NN||MM||KK)) break;
-		int ss = NN*KK*2+MM*KK*2+50,tt = ss+1;
-		int b1 = NN*KK,b2 = NN*KK*2+MM*KK;
-		//N
-		for(int i=0; i<NN; i++) {
-			for(int j=0; j<KK; j++) {
-				scanf("%d",&tmp);
-				addedge(b1+i*KK+j,b2+i*KK+j,tmp,0);
-				addedge(b2+i*KK+j,tt,INF,0);
+	int sp,suf,kds;
+	int tmp;
+	while( ~scanf("%d%d%d",&sp,&suf,&kds)) {
+		int res = 0,mf = 0,sum = 0;
+		if(!(sp||suf||kds)) break;
+		for(int i=0; i<sp; i++)
+			for(int j=0; j<kds; j++) {
+				scanf("%d",&arrSp[i][j]);
+				sum += arrSp[i][j];
 			}
-		}
-		//M
-		b1 = 0,b2 = NN*KK + MM*KK;
-		for(int i=0; i<MM; i++) {
-			for(int j=0; j<KK; j++) {
-				scanf("%d",&tmp);
-				addedge(ss,i*KK+j,INF,0);
-				addedge(i*KK+j,b2+i*KK+j,tmp,0);
+		for(int i=0; i<suf; i++)
+			for(int j=0; j<kds; j++)
+				scanf("%d",&arrSuf[i][j]);
+		for(int k=0; k<kds; k++)
+			for(int i=0; i<sp; i++)
+				for(int j=0; j<suf; j++)
+					scanf("%d",&arrKds[k][i][j]);
+		for(int k=0; k<kds; k++) {
+			int s = N-10,t = s+1;
+			init();
+			//Link shopers to t
+			for(int i=0; i<sp; i++) {
+				addedge(i,i+sp,arrSp[i][k],0);
+				addedge(i+sp,t,INF,0);
 			}
-		}
-		//link M---->N
-		b1 = NN*KK+MM*KK,b2 = NN*KK;
-		for(int k=0; k<KK; k++) {
-			for(int i=0; i<NN; i++) {
-				for(int j=0; j<MM; j++) {
-					scanf("%d",&tmp);
-					addedge(b1+j*KK+k,b2+i*KK+k,INF,tmp);
+			//Link s to suf
+			for(int i=0; i<suf; i++) {
+				if(arrSuf[i][k]) {
+					addedge(s,2*sp+i,arrSuf[i][k],0);
 				}
 			}
+			//link all to all
+			for(int i=0; i<sp; i++) {
+				for(int j=0; j<suf; j++) {
+					if(arrKds[k][i][j]) {
+						addedge(2*sp+j,i,INF,arrKds[k][i][j]);
+					}
+				}
+			}
+			mf+=mcmf(s,t);
+			res += ret;
 		}
-		ret = 0;
-		//====================Fordebug====================
-		prt(NN);
-		prt(MM);
-		prt(KK);
-		prt(ss);
-		prt(tt);
-		//====================Fordebug====================
-		mcmf(ss,tt);
-		printf("%d\n",ret);
+		printf("%d\n",mf == sum? res : -1);
 	}
 	return 0;
 }

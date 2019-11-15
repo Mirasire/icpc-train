@@ -55,7 +55,7 @@ void buildTree(int l,int r,int idx) {
 	} else {
 		tn[idx].init(sgy[l],sgy[r]);
 		tn[lc(idx)].init(0,0);
-		tn[lc(idx)].init(0,0);
+		tn[rc(idx)].init(0,0);
 	}
 	return;
 }
@@ -84,7 +84,7 @@ int main() {
 		for(int i=0; i<n; i++) {
 			scanf("%d%d%d%d",&x1,&y1,&x2,&y2);
 			rec[i].init(x1,y1,y2,1);
-			rec[i+n].init(x2,y1,y2,1);
+			rec[i+n].init(x2,y1,y2,-1);
 			sgy[i] = y1;
 			sgy[i+n] = y2;
 		}
@@ -104,7 +104,7 @@ int main() {
 		for(int i=0; i<end; i++) {
 			RECTANGEL& now = rec[i];
 			update(now.y1,now.y2,1,now.flag);
-			ans += abs(perLen - tn[1].sum) + 2*tn[1].nums*(now.x-perX);
+			ans += (int)abs(perLen - tn[1].sum) + 2*perNum*(now.x-perX);
 			perLen = tn[1].sum;
 			perNum = tn[1].nums;
 			perX = now.x;

@@ -1,8 +1,9 @@
 //MCMF
-#include <algorithm>
-#include <cstdio>
-#include <cstring>
-#include <queue>
+
+//tmplate_Use
+//mcmf(s, t) return MaxFlow
+//ret means MinCost
+//addedge(u, v, cap, cost)
 
 const int N = 5e3 + 5, M = 1e5 + 5;
 const int INF = 0x3f3f3f3f;
@@ -52,16 +53,4 @@ int mcmf(int s, int t) {
 		while ((x = dfs(s, t, INF))) ans += x;
 	}
 	return ans;
-}
-int main() {
-	int s, t;
-	scanf("%d%d%d%d", &n, &m, &s, &t);
-	while (m--) {
-		int u, v, w, c;
-		scanf("%d%d%d%d", &u, &v, &w, &c);
-		addedge(u, v, w, c);
-	}
-	int ans = mcmf(s, t);
-	printf("%d %d\n", ans, ret);
-	return 0;
 }

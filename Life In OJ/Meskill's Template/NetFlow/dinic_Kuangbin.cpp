@@ -5,7 +5,6 @@ const int INF = 0x3f3f3f3f;
 struct Edge{
 	int to,next,cap,flow;
 }edge[MAXM];//注意是 MAXM
-
 int tol;
 int head[MAXN];
 void init(){
@@ -18,7 +17,6 @@ void addedge(int u,int v,int w,int rw = 0){
 	edge[tol].to = u; edge[tol].cap = rw; edge[tol].flow = 0;
 	edge[tol].next = head[v]; head[v] = tol++;
 }
-
 int Q[MAXN];
 int dep[MAXN],cur[MAXN],sta[MAXN];
 bool bfs(int s,int t,int n){
@@ -39,7 +37,6 @@ bool bfs(int s,int t,int n){
 	}
 	return false;
 }
-
 int dinic(int s,int t,int n){
 	int maxflow = 0;
 	while(bfs(s,t,n)){

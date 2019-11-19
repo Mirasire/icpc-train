@@ -3,39 +3,44 @@
 ```
 .
 ├── Algorithms
+│   ├── Basic
+│   ├── Datastructures
+│   ├── DP
 │   ├── Graph theory
 │   │   ├── MST
 │   │   │   └── Kruskal.md
 │   │   ├── NetFlow
 │   │   │   ├── Basic.md
 │   │   │   ├── Dinic.cpp
-│   │   │   ├── MaxFlow.md
 │   │   │   ├── draw.md
+│   │   │   ├── MaxFlow.md
 │   │   │   └── try.png
 │   │   └── TopologicalSorting
-│   │       ├── Kanh.cpp
 │   │       ├── dfsKanh.cpp
 │   │       ├── in
+│   │       ├── Kanh.cpp
 │   │       └── 拓扑排序.md
 │   ├── Math
 │   │   ├── Nahtematics
 │   │   │   └── Nahtematics.md
-│   │   ├── Prime
-│   │   │   ├── BigInteger.cpp
-│   │   │   ├── CantorNumber.cpp
-│   │   │   ├── CantorNumber.md
-│   │   │   ├── Euler.md
-│   │   │   ├── Exgcd.md
-│   │   │   ├── QuickPord.c
-│   │   │   ├── QuickPord.md
-│   │   │   ├── exgcd.cpp
-│   │   │   └── 算法分析.md
-│   │   └── polya.md
+│   │   ├── polya.md
+│   │   └── Prime
+│   │       ├── BigInteger.cpp
+│   │       ├── CantorNumber.cpp
+│   │       ├── CantorNumber.md
+│   │       ├── Euler.md
+│   │       ├── exgcd.cpp
+│   │       ├── Exgcd.md
+│   │       ├── QuickPord.c
+│   │       ├── QuickPord.md
+│   │       └── 算法分析.md
+│   ├── Other
 │   ├── Search
 │   │   ├── 15591249128083.png
 │   │   ├── A_  search.pdf
 │   │   └── A_  search.xmind
 │   ├── Sort
+│   │   ├── bubble_sort.cpp
 │   │   ├── Insert2_sort.c
 │   │   ├── Insert_sort.c
 │   │   ├── Insert_sort.md
@@ -46,7 +51,6 @@
 │   │   ├── Quicksort.cpp
 │   │   ├── Shell_sort.c
 │   │   ├── Shell_sort.md
-│   │   ├── bubble_sort.cpp
 │   │   └── teacher's code.cpp
 │   └── String
 │       ├── AC自动机.md
@@ -58,7 +62,7 @@
 │   ├── Meskill's Template
 │   │   ├── MiniWay
 │   │   │   └── SPFA.cpp
-│   │   ├── NewFlow
+│   │   ├── NetFlow
 │   │   │   ├── dinic_Kuangbin.cpp
 │   │   │   ├── dinic_lrj.cpp
 │   │   │   ├── ek_lrj.cpp
@@ -70,10 +74,10 @@
 │       │   ├── 2003To2004 ACM-ICPC Northeastern European Regional Contest (NEERC 03)
 │       │   │   ├── A.cpp
 │       │   │   ├── C.c
-│       │   │   ├── F.cpp
 │       │   │   ├── code.in
 │       │   │   ├── farmer.in
 │       │   │   ├── farmer.out
+│       │   │   ├── F.cpp
 │       │   │   └── in
 │       │   ├── 2019-2020 ICPC, NERC, Southern and Volga Russian Regional Contest
 │       │   │   ├── B.cpp
@@ -88,22 +92,24 @@
 │       │   │   ├── A.cpp
 │       │   │   └── B.cpp
 │       │   ├── EducationRound#74
+│       │   │   ├── aatest
 │       │   │   ├── A.cpp
 │       │   │   ├── B.cpp
 │       │   │   ├── C.cpp
-│       │   │   ├── Problems - Codeforces.pdf
-│       │   │   ├── README.md
-│       │   │   ├── aatest
 │       │   │   ├── fC.cpp
 │       │   │   ├── fD.cpp
-│       │   │   └── in
+│       │   │   ├── in
+│       │   │   ├── Problems - Codeforces.pdf
+│       │   │   └── README.md
 │       │   ├── EducationRound#76
 │       │   │   ├── A.cpp
 │       │   │   ├── B.cpp
 │       │   │   ├── C.cpp
 │       │   │   ├── D.cpp
 │       │   │   ├── F.cpp
-│       │   │   └── in
+│       │   │   ├── in
+│       │   │   ├── Problems - Codeforces.pdf
+│       │   │   └── README.md
 │       │   ├── GlobalRound#3
 │       │   │   ├── A.cpp
 │       │   │   └── B.cpp
@@ -137,10 +143,10 @@
 │       │   │   ├── A.cpp
 │       │   │   ├── B.cpp
 │       │   │   ├── C.cpp
+│       │   │   ├── conclusion.md
 │       │   │   ├── D.cpp
 │       │   │   ├── E.cpp
 │       │   │   ├── F.cpp
-│       │   │   ├── conclusion.md
 │       │   │   └── in
 │       │   ├── Round#581
 │       │   │   ├── A.cpp
@@ -151,19 +157,19 @@
 │       │   │   ├── C.cpp
 │       │   │   ├── D.cpp
 │       │   │   ├── E.cpp
-│       │   │   ├── Problems - Codeforces.pdf
-│       │   │   ├── README.md
 │       │   │   ├── forSee.cpp
-│       │   │   └── in
+│       │   │   ├── in
+│       │   │   ├── Problems - Codeforces.pdf
+│       │   │   └── README.md
 │       │   ├── Round#588
 │       │   │   ├── A.cpp
 │       │   │   ├── B.cpp
 │       │   │   ├── C.cpp
 │       │   │   ├── D.cpp
-│       │   │   ├── Problems - Codeforces.pdf
-│       │   │   ├── README.md
 │       │   │   ├── forSee.cpp
-│       │   │   └── in
+│       │   │   ├── in
+│       │   │   ├── Problems - Codeforces.pdf
+│       │   │   └── README.md
 │       │   ├── Round#589
 │       │   │   ├── A.cpp
 │       │   │   ├── B.cpp
@@ -176,21 +182,21 @@
 │       │   │   ├── D.cpp
 │       │   │   ├── E.cpp
 │       │   │   ├── F.cpp
-│       │   │   ├── README.md
-│       │   │   └── in
+│       │   │   ├── in
+│       │   │   └── README.md
 │       │   ├── Round#592
-│       │   │   ├── A.cpp
 │       │   │   ├── A2.cpp
+│       │   │   ├── A.cpp
 │       │   │   ├── B.cpp
 │       │   │   └── in
 │       │   ├── Round#594
 │       │   │   ├── A.cpp
-│       │   │   ├── B.cpp
-│       │   │   ├── Problems - Codeforces.pdf
-│       │   │   ├── README.md
 │       │   │   ├── bC.cpp
+│       │   │   ├── B.cpp
 │       │   │   ├── bD.cpp
-│       │   │   └── in
+│       │   │   ├── in
+│       │   │   ├── Problems - Codeforces.pdf
+│       │   │   └── README.md
 │       │   ├── Round#595
 │       │   │   └── in
 │       │   ├── Round#599
@@ -206,8 +212,8 @@
 │       │       ├── F.cpp
 │       │       ├── G.cpp
 │       │       ├── H.cpp
-│       │       ├── J.cpp
 │       │       ├── in
+│       │       ├── J.cpp
 │       │       └── out
 │       ├── CometOJ
 │       │   └── Contest
@@ -224,9 +230,9 @@
 │       │   ├── ADT
 │       │   │   └── Linklist
 │       │   │       └── Problem1
+│       │   │           ├── in
 │       │   │           ├── Polynomial.c
-│       │   │           ├── Polynomial.md
-│       │   │           └── in
+│       │   │           └── Polynomial.md
 │       │   └── Tree
 │       │       ├── Segement Tree
 │       │       │   └── POJ2991.md
@@ -261,6 +267,7 @@
 │       │   ├── HDU3974.cpp
 │       │   ├── HDU4027.cpp
 │       │   ├── HDU4280.cpp
+│       │   ├── HDU4289.cpp
 │       │   ├── HDU4292.cpp
 │       │   ├── HDU4553.cpp
 │       │   ├── HDU4578.cpp
@@ -278,6 +285,12 @@
 │       │   ├── in
 │       │   └── 网络流24题.md
 │       ├── LuoGu
+│       │   ├── dp.sh
+│       │   ├── in
+│       │   ├── in1
+│       │   ├── out
+│       │   ├── out1
+│       │   ├── out2
 │       │   ├── P1046.cpp
 │       │   ├── P1047.cpp
 │       │   ├── P1344.cpp
@@ -293,41 +306,35 @@
 │       │   ├── P2678.cpp
 │       │   ├── P2709.cpp
 │       │   ├── P3203.cpp
-│       │   ├── P3366.cpp
 │       │   ├── P3366_2.cpp
+│       │   ├── P3366.cpp
 │       │   ├── P3367_2.cpp
 │       │   ├── P3371.cpp
 │       │   ├── P3371_spfa.cpp
 │       │   ├── P3375.cpp
 │       │   ├── P3381.cpp
-│       │   ├── P4779.cpp
-│       │   ├── dp.sh
-│       │   ├── in
-│       │   ├── in1
-│       │   ├── out
-│       │   ├── out1
-│       │   └── out2
+│       │   └── P4779.cpp
 │       ├── NowCode
 │       │   ├── BJSF17CXS
 │       │   │   ├── A.cpp
 │       │   │   ├── B.cpp
 │       │   │   └── C.cpp
+│       │   ├── Day_Check
+│       │   │   ├── in
+│       │   │   ├── Kshort.cpp
+│       │   │   └── 骑士精神.cpp
 │       │   ├── DXXLY1
 │       │   │   ├── A.cpp
 │       │   │   ├── F.cpp
-│       │   │   ├── J.cpp
-│       │   │   └── in
+│       │   │   ├── in
+│       │   │   └── J.cpp
 │       │   ├── DXXLY2
 │       │   │   ├── F.cpp
 │       │   │   └── in
 │       │   ├── DXXLY6
 │       │   │   ├── G.cpp
-│       │   │   ├── J.cpp
-│       │   │   └── in
-│       │   ├── Day_Check
-│       │   │   ├── Kshort.cpp
 │       │   │   ├── in
-│       │   │   └── 骑士精神.cpp
+│       │   │   └── J.cpp
 │       │   ├── JrTeam#18
 │       │   │   ├── A.cpp
 │       │   │   ├── in
@@ -341,6 +348,8 @@
 │       │       ├── D.cpp
 │       │       └── G.cpp
 │       ├── POJ
+│       │   ├── in
+│       │   ├── out
 │       │   ├── POJ1087.cpp
 │       │   ├── POJ1177.cpp
 │       │   ├── POJ1182.cpp
@@ -372,10 +381,10 @@
 │       │   ├── POJ3436.cpp
 │       │   ├── POJ3436_T.cpp
 │       │   ├── POJ3468.cpp
-│       │   ├── POJ3667.cpp
-│       │   ├── in
-│       │   └── out
+│       │   └── POJ3667.cpp
 │       ├── UVA
+│       │   ├── in
+│       │   ├── out
 │       │   ├── UVA10474.cpp
 │       │   ├── UVA1103
 │       │   ├── UVA1103.cpp
@@ -391,14 +400,18 @@
 │       │   ├── UVA572
 │       │   ├── UVA572.cpp
 │       │   ├── UVA572.md
-│       │   ├── UVA725.cpp
-│       │   ├── in
-│       │   └── out
+│       │   └── UVA725.cpp
 │       ├── Vijos
 │       │   └── XMU
 │       │       ├── A.cpp
 │       │       └── in
+│       ├── XiaoMiOJ
+│       │   └── Month03
+│       │       ├── 1.cpp
+│       │       └── 2.cpp
 │       ├── XUJCOJ
+│       │   ├── in
+│       │   ├── out
 │       │   ├── Plan
 │       │   ├── XUJC1001.cpp
 │       │   ├── XUJC1003.c
@@ -415,8 +428,8 @@
 │       │   ├── XUJC1021.c
 │       │   ├── XUJC1022.c
 │       │   ├── XUJC1023.cpp
-│       │   ├── XUJC1025.c
 │       │   ├── XUJC1025_2.c
+│       │   ├── XUJC1025.c
 │       │   ├── XUJC1026.c
 │       │   ├── XUJC1028.c
 │       │   ├── XUJC1029.c
@@ -428,16 +441,17 @@
 │       │   ├── XUJC1038.cpp
 │       │   ├── XUJC1042.cpp
 │       │   ├── XUJC1054.cpp
-│       │   ├── XUJC1058.c
 │       │   ├── XUJC1058_2.c
+│       │   ├── XUJC1058.c
 │       │   ├── XUJC1059.cpp
 │       │   ├── XUJC1060.cpp
 │       │   ├── XUJC1061.c
 │       │   ├── XUJC1064.cpp
-│       │   ├── XUJC1064Old.cpp
 │       │   ├── XUJC1064_Dfs.cpp
+│       │   ├── XUJC1064Old.cpp
 │       │   ├── XUJC1066.cpp
 │       │   ├── XUJC1069.cpp
+│       │   ├── XUJC_1070.c
 │       │   ├── XUJC1074.cpp
 │       │   ├── XUJC1116.c
 │       │   ├── XUJC1116.cpp
@@ -446,8 +460,8 @@
 │       │   ├── XUJC1135.cpp
 │       │   ├── XUJC1152.c
 │       │   ├── XUJC1152.cpp
-│       │   ├── XUJC1155.c
 │       │   ├── XUJC1155_2.c
+│       │   ├── XUJC1155.c
 │       │   ├── XUJC1173.c
 │       │   ├── XUJC1174.c
 │       │   ├── XUJC1175.c
@@ -458,109 +472,102 @@
 │       │   ├── XUJC1209.cpp
 │       │   ├── XUJC1213.cpp
 │       │   ├── XUJC1215
+│       │   │   ├── in
 │       │   │   ├── XUJC1215.cpp
-│       │   │   ├── XUJC1215Version2.cpp
-│       │   │   └── in
+│       │   │   └── XUJC1215Version2.cpp
 │       │   ├── XUJC1218.cpp
 │       │   ├── XUJC1219.cpp
 │       │   ├── XUJC1222.c
 │       │   ├── XUJC1242.cpp
-│       │   ├── XUJC1243.cpp
-│       │   ├── XUJC_1070.c
-│       │   ├── in
-│       │   └── out
-│       ├── XiaoMiOJ
-│       │   └── Month03
-│       │       ├── 1.cpp
-│       │       └── 2.cpp
+│       │   └── XUJC1243.cpp
 │       └── ZOJ
+│           ├── in
 │           ├── ZOJ1586.cpp
 │           ├── ZOJ1610.cpp
-│           ├── ZOJ4109.cpp
-│           └── in
-├── README.md
-└── pic
-    ├── Blog
-    │   ├── Hexo&&github2.jpg
-    │   ├── Hexo&github1.png
-    │   ├── LearnArr1.java
-    │   └── TestString.java
-    ├── DEBUG_option
-    │   ├── a.PNG
-    │   ├── a.png
-    │   ├── d.PNG
-    │   ├── d.png
-    │   ├── e.PNG
-    │   ├── e.png
-    │   ├── r.PNG
-    │   ├── r.png
-    │   ├── r2.PNG
-    │   ├── r2.png
-    │   ├── t.PNG
-    │   ├── t.png
-    │   ├── u.PNG
-    │   └── u.png
-    ├── Graph
-    │   └── NetWork
-    │       ├── MaxFlow.png
-    │       └── MaxFlow1.png
-    ├── Graphviz
-    │   ├── LD.dot
-    │   ├── LinkList1.png
-    │   ├── LinkList_Delete.png
-    │   ├── LinkList_Insert.png
-    │   ├── PicCommand
-    │   ├── The DOT Language.pdf
-    │   └── try.dot
-    ├── Merge_sort.png
-    ├── README.md
-    ├── draw.io_pic
-    │   ├── 2019-10-18
-    │   │   ├── ACmt1.png
-    │   │   ├── ACmt2.png
-    │   │   ├── ACmt3.png
-    │   │   └── Trie1.png
-    │   ├── 2019-10-19
-    │   │   ├── MF1.png
-    │   │   └── MF2.png
-    │   ├── 2019-10-20
-    │   │   └── MF3_2.png
-    │   ├── 2019-10-23
-    │   │   └── MF4.png
-    │   ├── 2019-10-30
-    │   │   ├── P1361—1.png
-    │   │   └── P1361—2.png
-    │   └── 2019-11-4
-    │       └── HDU4292.png
-    └── trash
-        └── HomeWork
-            ├── HomeWork.iml
-            ├── out
-            │   └── production
-            │       └── HomeWork
-            │           ├── META-INF
-            │           │   └── HomeWork.kotlin_module
-            │           ├── Main.class
-            │           └── xyz
-            │               └── mirasire
-            │                   ├── BlackTea.class
-            │                   ├── LSize.class
-            │                   ├── MSize.class
-            │                   ├── MilkTea.class
-            │                   ├── OolongTea.class
-            │                   ├── TakeAPI.class
-            │                   └── XLSize.class
-            └── src
-                ├── Main.java
-                └── xyz
-                    └── mirasire
-                        ├── BlackTea.java
-                        ├── LSize.java
-                        ├── MSize.java
-                        ├── MilkTea.java
-                        ├── OolongTea.java
-                        ├── TakeAPI.java
-                        └── XLSize.java
+│           └── ZOJ4109.cpp
+├── pic
+│   ├── Blog
+│   │   ├── Hexo&github1.png
+│   │   ├── Hexo&&github2.jpg
+│   │   ├── LearnArr1.java
+│   │   └── TestString.java
+│   ├── DEBUG_option
+│   │   ├── a.png
+│   │   ├── a.PNG
+│   │   ├── d.png
+│   │   ├── d.PNG
+│   │   ├── e.png
+│   │   ├── e.PNG
+│   │   ├── r2.png
+│   │   ├── r2.PNG
+│   │   ├── r.png
+│   │   ├── r.PNG
+│   │   ├── t.png
+│   │   ├── t.PNG
+│   │   ├── u.png
+│   │   └── u.PNG
+│   ├── draw.io_pic
+│   │   ├── 2019-10-18
+│   │   │   ├── ACmt1.png
+│   │   │   ├── ACmt2.png
+│   │   │   ├── ACmt3.png
+│   │   │   └── Trie1.png
+│   │   ├── 2019-10-19
+│   │   │   ├── MF1.png
+│   │   │   └── MF2.png
+│   │   ├── 2019-10-20
+│   │   │   └── MF3_2.png
+│   │   ├── 2019-10-23
+│   │   │   └── MF4.png
+│   │   ├── 2019-10-30
+│   │   │   ├── P1361—1.png
+│   │   │   └── P1361—2.png
+│   │   └── 2019-11-4
+│   │       └── HDU4292.png
+│   ├── Graph
+│   │   └── NetWork
+│   │       ├── MaxFlow1.png
+│   │       └── MaxFlow.png
+│   ├── Graphviz
+│   │   ├── LD.dot
+│   │   ├── LinkList1.png
+│   │   ├── LinkList_Delete.png
+│   │   ├── LinkList_Insert.png
+│   │   ├── PicCommand
+│   │   ├── The DOT Language.pdf
+│   │   └── try.dot
+│   ├── Merge_sort.png
+│   ├── README.md
+│   └── trash
+│       └── HomeWork
+│           ├── HomeWork.iml
+│           ├── out
+│           │   └── production
+│           │       └── HomeWork
+│           │           ├── Main.class
+│           │           ├── META-INF
+│           │           │   └── HomeWork.kotlin_module
+│           │           └── xyz
+│           │               └── mirasire
+│           │                   ├── BlackTea.class
+│           │                   ├── LSize.class
+│           │                   ├── MilkTea.class
+│           │                   ├── MSize.class
+│           │                   ├── OolongTea.class
+│           │                   ├── TakeAPI.class
+│           │                   └── XLSize.class
+│           └── src
+│               ├── Main.java
+│               └── xyz
+│                   └── mirasire
+│                       ├── BlackTea.java
+│                       ├── LSize.java
+│                       ├── MilkTea.java
+│                       ├── MSize.java
+│                       ├── OolongTea.java
+│                       ├── TakeAPI.java
+│                       └── XLSize.java
+└── README.md
 
-100 directories, 459 files
+104 directories, 462 files
 ```

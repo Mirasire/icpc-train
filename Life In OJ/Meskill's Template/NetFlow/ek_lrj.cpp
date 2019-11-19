@@ -1,23 +1,19 @@
 //Checked
 #define INF 0x3f3f3f3f
 const int maxn = 250;
-
 struct Edge {
 	int from, to, cap, flow;
 	Edge(int u, int v, int c, int f) : from(u), to(v), cap(c), flow(f) {}
 };
-
 struct EK {
 	int n, m;
 	vector<Edge> edges;
 	vector<int> G[maxn];
 	int a[maxn], p[maxn];
-
 	void init(int n) {
 		for (int i = 0; i < n; i++) G[i].clear();
 		edges.clear();
 	}
-
 	void AddEdge(int from, int to, int cap) {
 		edges.push_back(Edge(from, to, cap, 0));
 		edges.push_back(Edge(to, from, 0, 0));
@@ -25,7 +21,6 @@ struct EK {
 		G[from].push_back(m - 2);
 		G[to].push_back(m - 1);
 	}
-
 	int Maxflow(int s, int t) {
 		int flow = 0;
 		for (;;) {

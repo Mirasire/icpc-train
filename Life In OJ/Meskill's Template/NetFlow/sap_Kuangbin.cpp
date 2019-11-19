@@ -4,7 +4,6 @@
 //  !!!!!!!!!!!!!!!!!!初始化很重要!!!!!!!!!!!!!!!!!!!!!!
 // init() 函数进行初始化
 // SAP(start,end,n) 返回最大流
-
 typedef long long ll;
 typedef unsigned long long ull;
 const int MAXN=100010;//点数的最大值
@@ -14,7 +13,6 @@ struct Node{
     int from,to,next;
     int cap;
 }edge[MAXM];
-
 int tol,n;//n是总的点的个数，包括源点和汇点
 int head[MAXN];
 int dep[MAXN];

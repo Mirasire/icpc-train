@@ -5,10 +5,13 @@
 #include <string>
 #include <vector>
 #include <queue>
+#include <set>
 using namespace std;
 
 #define INF 0x3f3f3f3f
 const int maxn = 67;
+bool vv[maxn];
+set<int> setS;
 
 struct Edge {
 	int from, to, cap, flow;
@@ -82,8 +85,50 @@ struct Dinic {
 		}
 		return flow;
 	}
+
+	void findSetInit() { memset(vis,0,sizeof(vis)); }
+	void findSetS(int now) {
+		vis[now] = 1;
+		for(int i=0; i<G[now].size(); i++) {
+			if(!vis[edges[G[now][i]].to] && edges[G[now][i]].cap > edges[G[now][i]].flow) findSetS(edges[G[now][i]].to);
+		}
+	}
 };
 
 int main() {
+	Dinic dinic;
+	int n,m,ans;
+	int u,v,tmp;
+	while(~scanf("%d%d",&n,&m)) {
+		setS.clear();
+		if(!(n||m)) break;
+		dinic.init(n+3);
+		for(int i=0; i<m; i++) {
+			scanf("%d%d%d",&u,&v,&tmp);
+			dinic.AddEdge(u,v,tmp);
+			dinic.AddEdge(v,u,tmp);
+		}
+		dinic.Maxflow(1,2);
+		dinic.findSetInit();
+		dinic.findSetS(1);
+		// for(int i=1; i<=n; i++) {
+		// 	cout << i << "=" << dinic.vis[i] << endl;
+		// }
+
+		vv[1] = 1;
+		for(int now=1; now <= n; now++) {
+			if(dinic.vis[now]) {
+				memset(vv,0,sizeof(vv));
+				for(int i=0; i<dinic.G[now].size(); i++) {
+					Edge& e = dinic.edges[dinic.G[now][i]];
+					if(!dinic.vis[e.to] && !vv[e.to])  {
+						vv[e.to] = 1;
+						printf("%d %d\n",now,e.to);
+					}
+				}
+			}
+		}
+		putchar('\n');
+	}
 	return 0;
 }

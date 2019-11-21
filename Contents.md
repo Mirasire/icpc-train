@@ -199,7 +199,6 @@
 │       │   │   ├── A.cpp
 │       │   │   └── D.cpp
 │       │   ├── Round#601
-│       │   │   ├── #attache#
 │       │   │   ├── A.cpp
 │       │   │   ├── B.cpp
 │       │   │   ├── C.cpp
@@ -575,5 +574,5 @@
                         ├── TakeAPI.java
                         └── XLSize.java
 
-101 directories, 471 files
+101 directories, 470 files
 ```

@@ -3,7 +3,7 @@
 bool dfs(int u) {
 	for(int v=1; v=n; v++) {
 		if(line[u][v] && !vis[v]) {
-			vis[u] = 1;
+			vis[v] = 1;
 			if(match[v]==-1 || dfs(match[v])) {
 				match[v] = u;
 				return 1;

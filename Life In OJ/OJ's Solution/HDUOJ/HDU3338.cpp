@@ -7,6 +7,8 @@
 #include <queue>
 using namespace std;
 
+#define debug(x) printf(#x "= %d\n",x)
+
 //define the const
 const int MaxCol = 120,MaxRow = 120;
 const int maxn = 2e4+100,INF = 0x3f3f3f3f;
@@ -94,6 +96,7 @@ int main() {
 	int n,m,s,t;
 	Dinic dinic;
 	while(~scanf("%d%d",&n,&m)) {
+		//Init
 		int vCnt=0,hCnt=0,cnt=0;
 		int subs = 0;
 
@@ -106,19 +109,23 @@ int main() {
 		}
 
 		//Read in
+		int as=0,bs=0;
 		for(int i=0; i<n; i++) {
 			for(int j=0; j<m ;j++) {
 				scanf(" %s",assit);
 				if(assit[3] == '.') {
 					idx[i][j] = ++cnt;
-				} else if(assit[3] == '.') {
+					isWhite[i][j] = 1;
+				} else {
 					//Do It For vertial
+					isWhite[i][j] = 0;
 					if(assit[0] != 'X') {
 						grid[i][j][0] = 100*(assit[0]-'0') + 10*(assit[1]-'0') + assit[2]-'0';
 						vCnt++;
 					} else {
 						grid[i][j][0] = -1;
 					}
+
 					//Do It For horizontal
 					if(assit[4] != 'X') {
 						grid[i][j][1] = 100*(assit[4]-'0') + 10*(assit[5]-'0') + assit[6]-'0';
@@ -146,6 +153,7 @@ int main() {
 					grid[i][j][1] -= subs;
 					subs = 0;
 					dinic.AddEdge(s,cnt+(++hCnt),grid[i][j][1]);
+					printf("for horizontal #%d , %d# = %d\n",i,j,grid[i][j][1]);
 					//start to build the graph
 					for(int k=j; k<m&&isWhite[i][k]; k++) dinic.AddEdge(cnt+hCnt,idx[i][k],8);
 				}
@@ -160,7 +168,8 @@ int main() {
 				else if(grid[j][i][0] != -1){
 					grid[j][i][0] -= subs;
 					subs = 0;
-					dinic.AddEdge(cnt+hCnt+(++vCnt),t,grid[j][i][1]);
+					dinic.AddEdge(cnt+hCnt+(++vCnt),t,grid[j][i][0]);
+					printf("for vertial #%d , %d# = %d\n",j,i,grid[j][i][0]);
 					//start to build the graph
 					for(int k=j; k<n&&isWhite[k][i]; k++) dinic.AddEdge(idx[k][i],cnt+hCnt+vCnt,8);
 				}
@@ -168,14 +177,15 @@ int main() {
 		}
 
 		//Let's dance~
-		dinic.Maxflow(s,t);
+		debug(dinic.Maxflow(s,t));
 
 		for(int i=0; i<n; i++) {
 			for(int j=0; j<m; j++) {
 				if(j) putchar(' ');
 				if(isWhite[i][j]) {
 					//out puts the ans
-					printf("%d",dinic.edges[dinic.G[idx[i][j]][0]].flow+1);
+					putchar('1');
+					//printf("%d",dinic.edges[dinic.G[idx[i][j]][0]].flow+1);
 				} else putchar('_');
 			}
 			putchar('\n');

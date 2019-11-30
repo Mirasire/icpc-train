@@ -31,7 +31,7 @@ struct Dinic {
 	bool vis[maxn];
 
 	void init(int n) {
-		for (int i = 0; i < n; i++) G[i].clear();
+		for (int i = 0; i <= n; i++) G[i].clear();
 		edges.clear();
 	}
 
@@ -140,6 +140,7 @@ int main() {
 		//set the s and the t;
 		s = 0;
 		t = vCnt + hCnt + cnt +12;
+		dinic.init(t);
 		vCnt = hCnt = 0;
 
 		//preprocessing with the graph && build the graph
@@ -153,9 +154,9 @@ int main() {
 					grid[i][j][1] -= subs;
 					subs = 0;
 					dinic.AddEdge(s,cnt+(++hCnt),grid[i][j][1]);
-					printf("for horizontal #%d , %d# = %d\n",i,j,grid[i][j][1]);
+					//printf("for horizontal #%d , %d# = %d\n",i,j,grid[i][j][1]);
 					//start to build the graph
-					for(int k=j; k<m&&isWhite[i][k]; k++) dinic.AddEdge(cnt+hCnt,idx[i][k],8);
+					for(int k=j+1; k<m&&isWhite[i][k]; k++) dinic.AddEdge(cnt+hCnt,idx[i][k],8);
 				}
 			}
 		}
@@ -169,23 +170,26 @@ int main() {
 					grid[j][i][0] -= subs;
 					subs = 0;
 					dinic.AddEdge(cnt+hCnt+(++vCnt),t,grid[j][i][0]);
-					printf("for vertial #%d , %d# = %d\n",j,i,grid[j][i][0]);
+					//printf("for vertial #%d , %d# = %d\n",j,i,grid[j][i][0]);
 					//start to build the graph
-					for(int k=j; k<n&&isWhite[k][i]; k++) dinic.AddEdge(idx[k][i],cnt+hCnt+vCnt,8);
+					for(int k=j+1; k<n&&isWhite[k][i]; k++) dinic.AddEdge(idx[k][i],cnt+hCnt+vCnt,8);
 				}
 			}
 		}
 
 		//Let's dance~
-		debug(dinic.Maxflow(s,t));
+		//debug(dinic.Maxflow(s,t));
+		dinic.Maxflow(s,t);
 
 		for(int i=0; i<n; i++) {
 			for(int j=0; j<m; j++) {
 				if(j) putchar(' ');
 				if(isWhite[i][j]) {
-					//out puts the ans
-					putchar('1');
-					//printf("%d",dinic.edges[dinic.G[idx[i][j]][0]].flow+1);
+					Edge& e1 = dinic.edges[dinic.G[idx[i][j]][0]];
+					Edge& e2 = dinic.edges[dinic.G[idx[i][j]][1]];
+					int ans1 = e1.flow;
+					int ans2 = e2.flow;
+					printf("%d",ans2+1);
 				} else putchar('_');
 			}
 			putchar('\n');

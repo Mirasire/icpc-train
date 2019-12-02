@@ -116,6 +116,8 @@
 │       │   │   ├── A.cpp
 │       │   │   ├── B.cpp
 │       │   │   ├── C.cpp
+│       │   │   ├── D.cpp
+│       │   │   ├── Problems - Codeforces.pdf
 │       │   │   └── in
 │       │   ├── GlobalRound#3
 │       │   │   ├── A.cpp
@@ -354,6 +356,7 @@
 │       │   ├── P1020.cpp
 │       │   ├── P1046.cpp
 │       │   ├── P1047.cpp
+│       │   ├── P1192.cpp
 │       │   ├── P1344.cpp
 │       │   ├── P1345.cpp
 │       │   ├── P1361.cpp
@@ -640,5 +643,5 @@
                         ├── TakeAPI.java
                         └── XLSize.java
 
-112 directories, 525 files
+112 directories, 528 files
 ```

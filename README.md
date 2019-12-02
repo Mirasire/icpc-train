@@ -14,7 +14,7 @@
 
 ## Algorithms
 
-这个文件夹存放的是在**备赛**过程中的学习笔记，一般用markdown格式进行书写，并且作为博文，同步更新到个人网站上 [Meskill.top](http://meskill.top/)。
+这个文件夹存放的是在**备赛**过程中的学习笔记，一般用markdown格式进行书写，并且作为博文，同步更新到个人网站上 [mirasire.xyz](http://mirasire.xyz/)。
 
 ## Life In OJ
 

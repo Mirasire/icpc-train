@@ -1,3 +1,4 @@
+//AC O(n^3)
 #include <iostream>
 #include <algorithm>
 #include <cstdio>
@@ -34,9 +35,9 @@ void unite(int a,int b) {
 bool isMatch(int u) {
 	int end = n<<1;
 	for(int v=n+1; v<=end; v++) {
-		if(!vis[v]) {
+		if(grp[u][v] && !vis[v]) {
 			vis[v] = 1;
-			if(grp[u][v] || isMatch(match[v])) {
+			if(!match[v] || isMatch(match[v])) {
 				match[v] = u;
 				return 1;
 			}
@@ -46,6 +47,8 @@ bool isMatch(int u) {
 }
 
 bool xyl() {
+	//It's necessery to empty during every beginning
+	memset(match,0,sizeof(match));
 	int check = 0;
 	for(int i=1; i<=n; i++) {
 		memset(vis,0,sizeof(vis));
@@ -62,8 +65,6 @@ void buildGraph() {
 			if(grp[j][i]) {
 				for(int k=1; k<=n; k++) {
 					if(findF(j) == findF(k)) {
-						cout << "grils to grils = " << j << " " << k << endl;
-						cout << "boy to grils = " << (i-4) << " " << k << endl;
 						grp[i][k] = grp[k][i] = 1;
 					}
 				}
@@ -88,6 +89,8 @@ int main() {
 	scanf("%d",&t);
 	while(t--) {
 		//don't forget init
+		memset(match,0,sizeof(match));
+		memset(grp,0,sizeof(grp));
 		scanf("%d%d%d",&n,&m,&f);
 		for(int i=0; i<=(n<<1); i++) fa[i] = i;
 
@@ -102,10 +105,6 @@ int main() {
 		}
 		//OK make sure the union set is OK
 		buildGraph();
-		for(int i=1; i<=n; i++)
-			for(int j=n+1; j<=(n*2); j++) {
-				printf("%d%c",grp[i][j]," \n"[j==(n<<1)]);
-			}
 		printf("%d\n",slove());
 	}
 	return 0;

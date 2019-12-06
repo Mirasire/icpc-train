@@ -3,7 +3,7 @@ using namespace std;
 
 const int Hmaxn = 1e3+100,Emaxn = 1e5+100,INF = 0x3f3f3f;
 int dist[Hmaxn],vis[Hmaxn],mazz[Hmaxn][Hmaxn];
-int cnt = -1;
+int cnt = -1,st,tg;
 int cur[Hmaxn],head[Hmaxn];
 int dd[maxn];
 struct STATUS {
@@ -71,7 +71,7 @@ void bfs(int s) {
 			}
 		}
 	}
-	return vis[t];
+	return vis[tg];
 
 }
 
@@ -101,5 +101,29 @@ void dinic(int s,int t) {
 }
 
 int main() {
+	int t,n,m;
+	int  u,v,w;
+	scanf("%d",&t);
+	while(t--) {
+		scanf("%d%d",&n,&m);
+		for(int i=0 ;i<=n; i++) {
+			for(int j=0 ;j<=n; j++) {
+				mazz[i][j] = mazz[j][i] = INF;
+			}
+		}
+		while(m--) {
+			scanf("%d%d%d",&u,&v,&w);
+			mazz[u][v] = mazz[v][u] = w;
+		}
+		scanf("%d%d",&st,&tg);
+		dijkstra(s);
+		for(int i=1; i<=n; i++) {
+			for(int j=1; j<=n; j++) {
+				if(dist[j] == dist[i]+mazz[i][j]) addEdge(i,j)
+			}
+		}
+		int ans = dinic(s,t);
+		printf("%d\n",ans);
+	}
     return 0;
 }

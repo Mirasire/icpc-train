@@ -1,129 +1,153 @@
+//AC
 #include <bits/stdc++.h>
 using namespace std;
 
-const int Hmaxn = 1e3+100,Emaxn = 1e5+100,INF = 0x3f3f3f;
-int dist[Hmaxn],vis[Hmaxn],mazz[Hmaxn][Hmaxn];
-int cnt = -1,st,tg;
-int cur[Hmaxn],head[Hmaxn];
-int dd[maxn];
+#define INF 0x3f3f3f3f
+const int maxn = 1e3+100;
+
+//===For Dijkstra====
+struct DEdge {
+	int to,nxt,w;
+	DEdge() {}
+	void def(int a,int b,int wi) { to=a; nxt=b; w=wi; }
+} de[200200];
 struct STATUS {
-	int idx,dis;
-	bool operator <(const STATUS& oth) {
-		oth.dis > dis;
-	}
-	STATUS(int idx,int dis):idx(idx),dis(dis) {}
-	void def(int idx,int dis) { this.idx = idx; this.dis = dis; }
+	int idx,td;
+	STATUS() {}
+	STATUS(int idx,int td):idx(idx),td(td) {}
+	bool operator< (const STATUS& oth) const { return td > oth.td; }
 };
-struct EDGE {
-	int to,next,cap,flow;
-	void def(int a,int b,int c,int cap) { to = a; next = b; cap=c; flow = 0;}
-} e[Emaxn];
+int head[maxn],dist[maxn],dcnt;
+
+void DaddEdge(int u,int v,int w) {
+	de[++dcnt].def(u,head[v],w); head[v] = dcnt;
+}
 
 void dijkstra(int s) {
-	for(int i=0; i<=n; i++) dist[i] = INF;
 	dist[s] = 0;
-	STATUS now = STATUS{s,0},next;
+	STATUS now = {s,0};
 	priority_queue<STATUS> list;
 	list.push(now);
 	while(!list.empty()) {
-		now = list.front();
+		now = list.top();
 		list.pop();
-		for(int i=1; i<=n; i++) {
-			if(i==now.idx) continue;
-			next.dis = now.dis + mazz[how.idx][i];
-			if(dist[i] > next.dist) {
-				dist[i] = next.dist;
-				next.idx = i;
-				list.push(next);
+		if(dist[now.idx] < now.td) continue;
+		for(int i=head[now.idx]; i!=-1; i=de[i].nxt) {
+			DEdge& v = de[i];
+			if(v.w+now.td < dist[v.to]) {
+				dist[v.to] = now.td + v.w;
+				list.push({v.to,dist[v.to]});
 			}
 		}
 	}
 }
 
-void init(int n) {
-	for(int i=1; i<=n; i++) {
-		for(int j=1; j<=n; j++) {
-			mazz[i][j] = INF;
-		}
+
+
+struct Edge {
+	int from, to, cap, flow;
+	Edge(int u, int v, int c, int f) : from(u), to(v), cap(c), flow(f) {}
+};
+
+struct Dinic {
+	int n, m, s, t;
+	vector<Edge> edges;
+	vector<int> G[maxn];
+	int d[maxn], cur[maxn];
+	bool vis[maxn];
+
+	void init(int n) {
+		for (int i = 0; i < n; i++) G[i].clear();
+		edges.clear();
 	}
-}
 
-void addEdge(int a,int b) {
-	e[++cnt].def(b,head[a],1); head[a] = cnt;
-	e[++cnt].def(a,head[b],0); head[b] = cnt;
-}
+	void AddEdge(int from, int to, int cap) {
+		edges.push_back(Edge(from, to, cap, 0));
+		edges.push_back(Edge(to, from, 0, 0));
+		m = edges.size();
+		G[from].push_back(m - 2);
+		G[to].push_back(m - 1);
+	}
 
-void bfs(int s) {
-	int now = s;
-	memset(vis,0,sizeof(vis));
-	vis[s] = 1;
-	dd[s] = 0;
-	queue<int now> list;
-	list.push(now);
-	while(!list.empty()) {
-		now = list.front();
-		for(int i=head[now]; i!=-1; i=e[i].next) {
-			EDGE& next = e[i];
-			if(!vis[next.to] && next.cap > next.flow) {
-				vis[next.to] = 1;
-				dd[next.to] = dd[now]+1;
-				list.push(next.to);
+	bool BFS() {
+		memset(vis, 0, sizeof(vis));
+		queue<int> Q;
+		Q.push(s);
+		d[s] = 0;
+		vis[s] = 1;
+		while (!Q.empty()) {
+			int x = Q.front();
+			Q.pop();
+			for (int i = 0; i < G[x].size(); i++) {
+				Edge& e = edges[G[x][i]];
+				if (!vis[e.to] && e.cap > e.flow) {
+					vis[e.to] = 1;
+					d[e.to] = d[x] + 1;
+					Q.push(e.to);
+				}
 			}
 		}
+		return vis[t];
 	}
-	return vis[tg];
 
-}
-
-int dfs(int u,int rf) {
-	if(u==t || !rf) return 0;
-	int ff = 0,jf=0;
-	for(int& v=cur[u]; v!=-1; v=e[i].next) {
-		if(dd[v] == dd[u]+1 && (jf = dfs(v,min(rf,e[v].cap - e[v].flow))) > 0) {
-			ff += jf;
-			rf -= jf;
-			e[v].flow += jf;
-			e[v^1].flow -= jf;
-			if(!rf) break;
+	int DFS(int x, int a) {
+		if (x == t || a == 0) return a;
+		int flow = 0, f;
+		for (int& i = cur[x]; i < G[x].size(); i++) {
+			Edge& e = edges[G[x][i]];
+			if (d[x] + 1 == d[e.to] && (f = DFS(e.to, min(a, e.cap - e.flow))) > 0) {
+				e.flow += f;
+				edges[G[x][i] ^ 1].flow -= f;
+				flow += f;
+				a -= f;
+				if (a == 0) break;
+			}
 		}
+		return flow;
 	}
-	return ff;
-}
 
-
-void dinic(int s,int t) {
-	int ans = 0;
-	while(bfs(s)) {
-		for(int i=0; i<=t; i++) cur[i] = head[i];
-		ans += dfs(s,INF);
+	int Maxflow(int s, int t) {
+		this->s = s;
+		this->t = t;
+		int flow = 0;
+		while (BFS()) {
+			memset(cur, 0, sizeof(cur));
+			flow += DFS(s, INF);
+		}
+		return flow;
 	}
-	return ans;
-}
+};
 
 int main() {
-	int t,n,m;
-	int  u,v,w;
-	scanf("%d",&t);
-	while(t--) {
+	int T;
+	int u,v,iw;
+	int n,m,s,t;
+	Dinic dinic;
+	scanf("%d",&T);
+	while(T--) {
+		//Init
 		scanf("%d%d",&n,&m);
-		for(int i=0 ;i<=n; i++) {
-			for(int j=0 ;j<=n; j++) {
-				mazz[i][j] = mazz[j][i] = INF;
-			}
+		dcnt = 0;
+		for(int i=0; i<=n; i++) {
+			dist[i] = INF;
+			head[i] = -1;
 		}
-		while(m--) {
-			scanf("%d%d%d",&u,&v,&w);
-			mazz[u][v] = mazz[v][u] = w;
+		dinic.init(n+1);
+
+		for(int i=0; i<m; i++) {
+			scanf("%d%d%d",&u,&v,&iw);
+			DaddEdge(v,u,iw);
 		}
-		scanf("%d%d",&st,&tg);
+		scanf("%d%d",&s,&t);
+		//cout << "Input Ok\n";
 		dijkstra(s);
+		//cout << "Dijkstra\n";
 		for(int i=1; i<=n; i++) {
-			for(int j=1; j<=n; j++) {
-				if(dist[j] == dist[i]+mazz[i][j]) addEdge(i,j)
+			for(int j=head[i]; j!=-1; j=de[j].nxt) {
+				if(dist[de[j].to] == dist[i]+de[j].w) dinic.AddEdge(i,de[j].to,1);
 			}
 		}
-		int ans = dinic(s,t);
-		printf("%d\n",ans);
+		printf("%d\n",dinic.Maxflow(s,t));
 	}
-    return 0;
+	return 0;
 }

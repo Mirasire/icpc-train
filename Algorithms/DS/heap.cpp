@@ -41,19 +41,16 @@ class MAXHEAP {
 			x=t;
 		}
 	}
-	//TODO insert
-	void insert(int data) {
-
+	void insert(int _data) {
+		n++;
+		data[n] = _data;
+		up(n);
 	}
-	//TODO getMax
-	int getMax() {
-
-	}
-	//TODO delete Max
+	int getMax() { return data[1]; }
 	int delMax() {
-
-	}
-	int delkey() {
-
+		swap(data[1],data[n]);
+		//data[n]=0
+		n--;
+		down(1);
 	}
 };

@@ -77,7 +77,6 @@ void modify(int i,int ld,int rd,int def) {
     up(i);
 }
 
-//TODO
 void query(int i,int k) {
     if(flag || !nd[i].lazy) return;
     if(nd[i].pr >= k) {

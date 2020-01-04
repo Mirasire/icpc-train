@@ -54,3 +54,8 @@ class MAXHEAP {
 		down(1);
 	}
 };
+
+int main() {
+	//for test
+	return 0;
+}

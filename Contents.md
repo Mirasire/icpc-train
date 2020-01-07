@@ -3,6 +3,9 @@
 ```
 .
 ├── Algorithms
+│   ├── DS
+│   │   ├── BST.cpp
+│   │   └── heap.cpp
 │   ├── Graph theory
 │   │   ├── MST
 │   │   │   └── Kruskal.md
@@ -146,6 +149,10 @@
 │       │   ├── GlobalRound#3
 │       │   │   ├── A.cpp
 │       │   │   └── B.cpp
+│       │   ├── Good Bye 2019
+│       │   │   ├── A.cpp
+│       │   │   ├── B.cpp
+│       │   │   └── in
 │       │   ├── Round#550
 │       │   │   ├── A.cpp
 │       │   │   ├── B.cpp
@@ -296,6 +303,7 @@
 │       │   │   ├── B.cpp
 │       │   │   ├── C.cpp
 │       │   │   ├── D.cpp
+│       │   │   ├── E.cpp
 │       │   │   ├── Problems - Codeforces.pdf
 │       │   │   ├── in
 │       │   │   └── in2
@@ -303,6 +311,8 @@
 │       │   │   ├── A.cpp
 │       │   │   ├── B.cpp
 │       │   │   ├── C.cpp
+│       │   │   ├── D.cpp
+│       │   │   ├── E.cpp
 │       │   │   └── in
 │       │   └── UKIEPC2017
 │       │       ├── 2017-united-kingdom-ireland-programming-contest-ukiepc-2017-en.pdf
@@ -328,17 +338,6 @@
 │       │       │   └── C.cpp
 │       │       └── Round9
 │       │           └── in
-│       ├── DataStruct
-│       │   ├── ADT
-│       │   │   └── Linklist
-│       │   │       └── Problem1
-│       │   │           ├── Polynomial.c
-│       │   │           ├── Polynomial.md
-│       │   │           └── in
-│       │   └── Tree
-│       │       ├── Segement Tree
-│       │       │   └── POJ2991.md
-│       │       └── Tree.md
 │       ├── FZU
 │       │   └── search
 │       │       ├── 2
@@ -459,6 +458,10 @@
 │       │   │   ├── A.cpp
 │       │   │   ├── in
 │       │   │   └── test
+│       │   ├── JrTeam#30
+│       │   │   ├── B.cpp
+│       │   │   ├── H.cpp
+│       │   │   └── in
 │       │   ├── Train
 │       │   │   └── Queue
 │       │   │       ├── 13587.cpp
@@ -495,6 +498,7 @@
 │       │   ├── POJ3126.cpp
 │       │   ├── POJ3250.cpp
 │       │   ├── POJ3264.cpp
+│       │   ├── POJ3268.cpp
 │       │   ├── POJ3279.cpp
 │       │   ├── POJ3281.cpp
 │       │   ├── POJ3414.cpp
@@ -693,5 +697,5 @@
         │               └── XLSize.java
         └── RandomLucky.java
 
-117 directories, 573 files
+114 directories, 580 files
 ```

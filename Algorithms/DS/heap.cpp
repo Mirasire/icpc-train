@@ -25,6 +25,12 @@ class MAXHEAP {
 		for(int i=1; i<=n; i++) down(i);
 		*/
 	}
+	/*
+	~MAXHEAP() {
+		_size = 0;
+		memset(data,0,sizeof(data));
+	}
+	*/
 	void up(int x) {
 		while(x>1 && data[x] > data[x/2]) {
 			swap(data[x],data[x/2]);

@@ -25,3 +25,14 @@
 ## pic
 
 详见pic文件夹中的README.md文件
+
+## TODO List
+
+**在OI - WIKI 的学习进程**
+
+|Event|status|
+|:--:|:--:|
+|基础||
+|堆||
+|树||
+|图||

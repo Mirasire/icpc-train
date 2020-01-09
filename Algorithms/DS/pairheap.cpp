@@ -1,73 +1,70 @@
-#include <cstdio>
-#include <cstring>
+//TODO Pairing Heap
 #include <bits/stdc++.h>
 using namespace std;
 
-const int INF = 0x3f3f3f3f;
-
 typedef struct NODE* PNode;
 struct NODE {
-    int val;
-    PNode fa,son,bro;
-    NODE(): { val = INF; fa = son = bro = nullptr; }
-    NODE(int _val,PNode _fa,PNode _son,PNode _bro) : val(_val),fa(_fa),son(_son),bro(_bro) {}
+	int data;
+	PNode son,bro;
+	NODE() { son = bro = nullptr; }
+	NODE(int _data):data(_data) { son = bro = nullptr; }
 };
 
-class PAIRINGHEAP{
-    private:
-    PNode root;
-    int n;
-    public:
-    PAIRINGHEAP() { root = new NODE(); n = 0; }
-    PAIRINGHEAP(int arr[],int _size) { 
-        root = new NODE();  n = 0;
-        for(int i=0; i<_size; i++) insert(arr[i]);
-    }
-    //insert _rt && data
-    PNode insert(PNode _rt,int val) {
-        n++;
-        if(n==0) {
-            _rt = new NODE(val,nullptr,nullptr,nullptr);
-            return _rt;
-        }
-        PNode add = new NODE();
-        add->val = val;
-        if(_rt->val > val) swap(add,_rt);
-        add->bro = _rt->son;
-        add->fa = _rt;
-        _rt->son = add;
-        return _rt;
-    }
-    //merge
-    PNode merge(PNode pa,PNode pb) {
-        if(pa == nullptr) return pb;
-        else if(pb == nullptr) return pa;
-        if(pa->val > pb->val) swap(pa,pb);
-        //init
-        pa->fa = pb->fa = nullptr;
-        //link
-        pb->fa = pa;
-        pb->bro = pa->son;
-        pa->son = pb;
-        return pa;
-    }
-    PNode mergeBro(PNode now) {
-        if(now == nullptr || now->bro == nullptr) return now;
-        PNode nxt = now->bro,nnxt = nxt->bro;
-        now->fa = nxt->fa = nullptr;
-        //cut link
-        nxt->bro = now->bro = nullptr;
-        return merge(merge(now,nxt),mergeBro(nnxt));
-    }
-    void deleteMin() {
-        PNode tmp = root;
-        root = mergeBro(_root->bro);
-        if(tmp) delete(tmp);
-    }
-    PNode getMin(){ return n==0? nullptr : root; }
-    //decrease-key
+//Min Pairing Heap
+class PAIRINGHEAP {
+	private:
+		PNode root;
+		int n;
+	public:
+		PAIRINGHEAP() { n=0; }
+		PNode insert(int _data) {
+			n++;
+			if(n==1) {
+				root = new NODE(_data);
+				return root;
+			}
+			PNode _add = new NODE(_data);
+			if(root->data > _add->data) swap(root,_add);
+			_add->bro = root->son;
+			root->son = _add;
+			return root;
+			//return root = merge(root,_add);
+		}
+		PNode merge(PNode pa,PNode pb) {
+			if(pa==nullptr) return pb;
+			else if(pb==nullptr) return pa;
+			if(pa->data > pb->data) swap(pa,pb);
+			pb->bro = pa->son;
+			pa->son = pb;
+			return pb;
+		}
+		PNode mergeBro(PNode _now) {
+			if(!_now || !_now->bro) return _now;
+			PNode nxt = _now->bro,nnxt = nxt->bro;
+			_now->bro = nxt->bro = nullptr;
+			return merge(merge(_now,nxt),mergeBro(nnxt));
+		}
+		PNode getMin() { return n==0? nullptr : root; }
+		PNode delMin() { 
+			n--;
+			return root = mergeBro(root->son);
+		}
 };
 
 int main() {
-    return 0;
+	std::ios::sync_with_stdio(false);
+	PAIRINGHEAP p;
+	p.insert(13);
+	p.insert(12);
+	p.insert(7);
+	p.insert(3);
+	p.insert(10);
+	PNode ans;
+	do {
+		ans = p.getMin();
+		cout << ans->data << " ";
+		ans = p.delMin();
+	} while(ans);
+	cout << endl;
+	return 0;
 }

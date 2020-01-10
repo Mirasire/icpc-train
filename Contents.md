@@ -340,10 +340,7 @@
 │       │       └── Round9
 │       │           └── in
 │       ├── FZU
-│       │   └── search
-│       │       ├── 2
-│       │       ├── FZU2150.cpp
-│       │       └── in
+│       │   └── FZU2150.cpp
 │       ├── HDUOJ
 │       │   ├── HDU1043.cpp
 │       │   ├── HDU1043V2.cpp
@@ -464,6 +461,7 @@
 │       │   │   ├── B.cpp
 │       │   │   ├── H.cpp
 │       │   │   └── in
+│       │   ├── Problem
 │       │   ├── Train
 │       │   │   └── Queue
 │       │   │       ├── 13587.cpp
@@ -530,14 +528,6 @@
 │       │   ├── UVA572.cpp
 │       │   ├── UVA572.md
 │       │   └── UVA725.cpp
-│       ├── Vijos
-│       │   └── XMU
-│       │       ├── A.cpp
-│       │       └── in
-│       ├── XiaoMiOJ
-│       │   └── Month03
-│       │       ├── 1.cpp
-│       │       └── 2.cpp
 │       ├── XUJCOJ
 │       │   ├── in
 │       │   ├── out
@@ -699,5 +689,5 @@
 │       └── RandomLucky.java
 └── README.md
 
-114 directories, 582 files
+110 directories, 576 files
 ```

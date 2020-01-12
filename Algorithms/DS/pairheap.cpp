@@ -1,70 +1,83 @@
-//TODO Pairing Heap
+//TODO
 #include <bits/stdc++.h>
 using namespace std;
 
 typedef struct NODE* PNode;
 struct NODE {
-	int data;
-	PNode son,bro;
-	NODE() { son = bro = nullptr; }
-	NODE(int _data):data(_data) { son = bro = nullptr; }
+	int val;
+	PNode ch,br;
+	NODE() {}
+	NODE(int _val):val(_val),ch(nullptr),br(nullptr) {}
+	void display() { cout << val << " "; }
 };
 
-//Min Pairing Heap
 class PAIRINGHEAP {
-	private:
+	public:
 		PNode root;
 		int n;
-	public:
-		PAIRINGHEAP() { n=0; }
-		PNode insert(int _data) {
-			n++;
-			if(n==1) {
-				root = new NODE(_data);
-				return root;
+		PAIRINGHEAP() { root = new NODE(); n = 0; }
+		PAIRINGHEAP(int arr[],int _size) {
+		}
+		void insert(int val) {
+			if(!n) {root = new NODE(val);}
+			else {
+				PNode _add = new NODE(val);
+				root = merge(root,_add);
 			}
-			PNode _add = new NODE(_data);
-			if(root->data > _add->data) swap(root,_add);
-			_add->bro = root->son;
-			root->son = _add;
-			return root;
-			//return root = merge(root,_add);
+			n++;
 		}
-		PNode merge(PNode pa,PNode pb) {
-			if(pa==nullptr) return pb;
-			else if(pb==nullptr) return pa;
-			if(pa->data > pb->data) swap(pa,pb);
-			pb->bro = pa->son;
-			pa->son = pb;
-			return pb;
+		PNode merge(PNode a,PNode b) {
+			if(a == nullptr) return b;
+			else if(b == nullptr) return a;
+			if(a->val > b->val) swap(a,b);
+			b->br = a->ch;
+			a->ch = b;
+			return a;
 		}
-		PNode mergeBro(PNode _now) {
-			if(!_now || !_now->bro) return _now;
-			PNode nxt = _now->bro,nnxt = nxt->bro;
-			_now->bro = nxt->bro = nullptr;
-			return merge(merge(_now,nxt),mergeBro(nnxt));
+		PNode mergeBro(PNode x) {
+			if(x==nullptr || x->br == nullptr) return x;
+			PNode n1,n2;
+			n1 = x->br; n2 = n1->br;
+			n1->br = x->br = nullptr;
+			return merge(merge(x,n1),mergeBro(n2));
 		}
-		PNode getMin() { return n==0? nullptr : root; }
-		PNode delMin() { 
-			n--;
-			return root = mergeBro(root->son);
+		void delMin() {
+			PNode tmp = root;
+			root = mergeBro(root->ch);
+			delete(tmp);
+		}
+		void display() {
+			queue<PNode> list;
+			list.push(root);
+			while(!list.empty()) {
+				PNode tmp = list.front();
+				list.pop();
+				while(tmp != nullptr) {
+					tmp->display();
+					if(tmp->ch != nullptr) list.push(tmp->ch);
+					tmp=tmp->br;
+				}
+			}
+			cout << endl;
 		}
 };
 
 int main() {
+	//for test
 	std::ios::sync_with_stdio(false);
-	PAIRINGHEAP p;
-	p.insert(13);
-	p.insert(12);
-	p.insert(7);
-	p.insert(3);
-	p.insert(10);
-	PNode ans;
-	do {
-		ans = p.getMin();
-		cout << ans->data << " ";
-		ans = p.delMin();
-	} while(ans);
-	cout << endl;
+	PAIRINGHEAP pair;
+	pair.insert(13);
+	cout << pair.root->val << endl;
+	pair.insert(24);
+	cout << pair.root->val << endl;
+	pair.insert(6);
+	cout << pair.root->val << endl;
+	pair.insert(1);
+	cout << pair.root->val << endl;
+	pair.insert(12);
+	cout << pair.root->val << endl;
+	pair.display();
+	pair.delMin();
+	pair.display();
 	return 0;
 }

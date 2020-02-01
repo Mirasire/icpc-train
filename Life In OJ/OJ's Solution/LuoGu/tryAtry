@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/zsh
 
 while true; do
 
-    if diff out out1; then
+    if diff out ans; then
         printf "AC\n"
         break;
     else 

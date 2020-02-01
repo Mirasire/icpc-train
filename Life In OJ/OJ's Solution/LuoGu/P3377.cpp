@@ -1,6 +1,8 @@
+//TODO https://www.luogu.com.cn/problem/P3377
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-    return 0;
+	//std::ios::sync_with_stdio(false);
+	return 0;
 }

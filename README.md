@@ -1,38 +1,29 @@
-# README
+# icpc-train
 
-## Contest.md
+## 描述
 
-这个是目录，显示了仓库中的所有代码
+这个仓库的建立用于保存在准备(icpc/ccpc)中的学习过程产生的代码~~(ac or wa2333)~~，以及一些题目的题解存档。
 
-## 目的
+可以在**Contents.md**中查看所有文件，**Contents.md**文件汇总了本仓库中的所有文件 | [**Here**](Contents.md)
 
-这个仓库用来记录在 XUJC|TKK 准备**icpc** 过程中的刷题记录，以及**知识点**的学习，主要分为三个文件夹
+此仓库主要有两个文件夹
 
-- Algorithms
-- Life In OJ
-- pic
+- Mirasire's Template
+	- 用于保存使用到的模板代码
+- OJ's Solution
+	- 在学习过程中产生的代码和一些题解
 
-## Algorithms
+关于本仓库中的题解，都会同步发布到个人网站中 | [mirasire.xyz](http://mirasire.xyz) |。
 
-这个文件夹存放的是在**备赛**过程中的学习笔记，一般用markdown格式进行书写，并且作为博文，同步更新到个人网站上 [mirasire.xyz](http://mirasire.xyz/)。
+## 使用
 
-## Life In OJ
+可以在线查看我的代码或者下载到本地仓库查看。
 
-这个文件夹主要存放刷题产生的源代码，和对一些特定题的题解。
+```bash
+git clone https://github.com/Mirasire/icpc-train.git icpc-train
+```
 
-> P.s. CodeForces的题解会以README.md文件存放在每个比赛文件夹中
+## LICENSE
 
-## pic
+[SATA](LICENSE)
 
-详见pic文件夹中的README.md文件
-
-## TODO List
-
-**在OI - WIKI 的学习进程**
-
-|Event|status|
-|:--:|:--:|
-|基础||
-|堆||
-|树||
-|图||

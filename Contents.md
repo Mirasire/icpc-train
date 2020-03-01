@@ -30,7 +30,6 @@
 │   │   │   ├── D.cpp
 │   │   │   ├── E.cpp
 │   │   │   ├── F.cpp
-│   │   │   ├── in
 │   │   │   └── problem.pdf
 │   │   └── Educational#DP
 │   │       ├── A.cpp
@@ -40,10 +39,6 @@
 │   │       ├── E.cpp
 │   │       ├── F.cpp
 │   │       ├── G.cpp
-│   │       ├── in
-│   │       ├── in1
-│   │       ├── in2
-│   │       ├── in3
 │   │       └── url
 │   ├── CodeForces
 │   │   ├── 2003To2004 ACM-ICPC Northeastern European Regional Contest (NEERC 03)
@@ -52,15 +47,10 @@
 │   │   │   ├── code.in
 │   │   │   ├── farmer.in
 │   │   │   ├── farmer.out
-│   │   │   ├── F.cpp
-│   │   │   └── in
+│   │   │   └── F.cpp
 │   │   ├── 2019-2020 ICPC, NERC, Southern and Volga Russian Regional Contest
 │   │   │   ├── B.cpp
-│   │   │   ├── contest.pdf
-│   │   │   ├── in
-│   │   │   ├── in2
-│   │   │   ├── in3
-│   │   │   └── in4
+│   │   │   └── contest.pdf
 │   │   ├── EducationRound#65
 │   │   │   └── A.cpp
 │   │   ├── EducationRound#73
@@ -73,7 +63,6 @@
 │   │   │   ├── C.cpp
 │   │   │   ├── fC.cpp
 │   │   │   ├── fD.cpp
-│   │   │   ├── in
 │   │   │   ├── Problems - Codeforces.pdf
 │   │   │   └── README.md
 │   │   ├── EducationRound#76
@@ -83,7 +72,6 @@
 │   │   │   ├── D.cpp
 │   │   │   ├── E.cpp
 │   │   │   ├── F.cpp
-│   │   │   ├── in
 │   │   │   ├── Problems - Codeforces.pdf
 │   │   │   └── README.md
 │   │   ├── EducationRound#77
@@ -91,7 +79,6 @@
 │   │   │   ├── B.cpp
 │   │   │   ├── C.cpp
 │   │   │   ├── D.cpp
-│   │   │   ├── in
 │   │   │   └── Problems - Codeforces.pdf
 │   │   ├── GlobalRound#3
 │   │   │   ├── A.cpp
@@ -99,39 +86,32 @@
 │   │   ├── GlobalRound#6
 │   │   │   ├── A.cpp
 │   │   │   ├── B.cpp
-│   │   │   ├── C.cpp
-│   │   │   └── in
+│   │   │   └── C.cpp
 │   │   ├── Good Bye 2019
 │   │   │   ├── A.cpp
-│   │   │   ├── B.cpp
-│   │   │   └── in
+│   │   │   └── B.cpp
 │   │   ├── Hello 2020
 │   │   │   ├── A.cpp
 │   │   │   ├── B.cpp
-│   │   │   ├── C.cpp
-│   │   │   └── in
+│   │   │   └── C.cpp
 │   │   ├── Round#550
 │   │   │   ├── A.cpp
 │   │   │   ├── B.cpp
 │   │   │   ├── C.cpp
 │   │   │   ├── D.cpp
-│   │   │   ├── E.cpp
-│   │   │   └── in
+│   │   │   └── E.cpp
 │   │   ├── Round#555
 │   │   │   ├── A.cpp
 │   │   │   ├── B.cpp
 │   │   │   ├── C1.cpp
 │   │   │   ├── C2.cpp
-│   │   │   ├── E.cpp
-│   │   │   ├── in
-│   │   │   └── out
+│   │   │   └── E.cpp
 │   │   ├── Round#559
 │   │   │   ├── A.cpp
 │   │   │   ├── B.cpp
 │   │   │   └── C.cpp
 │   │   ├── Round#565
-│   │   │   ├── A.cpp
-│   │   │   └── in
+│   │   │   └── A.cpp
 │   │   ├── Round#570
 │   │   │   ├── A.cpp
 │   │   │   ├── B.cpp
@@ -143,8 +123,7 @@
 │   │   │   ├── conclusion.md
 │   │   │   ├── D.cpp
 │   │   │   ├── E.cpp
-│   │   │   ├── F.cpp
-│   │   │   └── in
+│   │   │   └── F.cpp
 │   │   ├── Round#581
 │   │   │   ├── A.cpp
 │   │   │   └── B.cpp
@@ -155,7 +134,6 @@
 │   │   │   ├── D.cpp
 │   │   │   ├── E.cpp
 │   │   │   ├── forSee.cpp
-│   │   │   ├── in
 │   │   │   ├── Problems - Codeforces.pdf
 │   │   │   └── README.md
 │   │   ├── Round#588
@@ -164,13 +142,11 @@
 │   │   │   ├── C.cpp
 │   │   │   ├── D.cpp
 │   │   │   ├── forSee.cpp
-│   │   │   ├── in
 │   │   │   ├── Problems - Codeforces.pdf
 │   │   │   └── README.md
 │   │   ├── Round#589
 │   │   │   ├── A.cpp
-│   │   │   ├── B.cpp
-│   │   │   └── in
+│   │   │   └── B.cpp
 │   │   ├── Round#590
 │   │   │   ├── A.cpp
 │   │   │   ├── B.cpp
@@ -179,98 +155,58 @@
 │   │   │   ├── D.cpp
 │   │   │   ├── E.cpp
 │   │   │   ├── F.cpp
-│   │   │   ├── in
 │   │   │   └── README.md
 │   │   ├── Round#592
 │   │   │   ├── A2.cpp
 │   │   │   ├── A.cpp
-│   │   │   ├── B.cpp
-│   │   │   └── in
+│   │   │   └── B.cpp
 │   │   ├── Round#594
 │   │   │   ├── A.cpp
 │   │   │   ├── bC.cpp
 │   │   │   ├── B.cpp
 │   │   │   ├── bD.cpp
-│   │   │   ├── in
 │   │   │   ├── Problems - Codeforces.pdf
 │   │   │   └── README.md
 │   │   ├── Round#595
-│   │   │   └── in
 │   │   ├── Round#599
 │   │   │   ├── A.cpp
 │   │   │   └── D.cpp
 │   │   ├── Round#600
 │   │   │   └── 1253
 │   │   │       ├── a
-│   │   │       │   ├── a.cpp
-│   │   │       │   ├── ans1.txt
-│   │   │       │   └── in1.txt
+│   │   │       │   └── a.cpp
 │   │   │       ├── b
-│   │   │       │   ├── ans1.txt
-│   │   │       │   ├── ans2.txt
-│   │   │       │   ├── ans3.txt
-│   │   │       │   ├── ans4.txt
-│   │   │       │   ├── b.cpp
-│   │   │       │   ├── in1.txt
-│   │   │       │   ├── in2.txt
-│   │   │       │   ├── in3.txt
-│   │   │       │   └── in4.txt
+│   │   │       │   └── b.cpp
 │   │   │       ├── c
-│   │   │       │   ├── ans1.txt
-│   │   │       │   ├── ans2.txt
-│   │   │       │   ├── in1.txt
-│   │   │       │   └── in2.txt
 │   │   │       ├── d
-│   │   │       │   ├── ans1.txt
-│   │   │       │   ├── ans2.txt
-│   │   │       │   ├── in1.txt
-│   │   │       │   └── in2.txt
 │   │   │       ├── e
-│   │   │       │   ├── ans1.txt
-│   │   │       │   ├── ans2.txt
-│   │   │       │   ├── ans3.txt
-│   │   │       │   ├── ans4.txt
-│   │   │       │   ├── in1.txt
-│   │   │       │   ├── in2.txt
-│   │   │       │   ├── in3.txt
-│   │   │       │   └── in4.txt
 │   │   │       └── f
-│   │   │           ├── ans1.txt
-│   │   │           ├── ans2.txt
-│   │   │           ├── in1.txt
-│   │   │           └── in2.txt
 │   │   ├── Round#601
 │   │   │   ├── A.cpp
 │   │   │   ├── B.cpp
 │   │   │   ├── C.cpp
 │   │   │   ├── D.cpp
 │   │   │   ├── E1.cpp
-│   │   │   ├── in
 │   │   │   ├── Problems - Codeforces.pdf
 │   │   │   └── README.md
 │   │   ├── Round#603
 │   │   │   ├── A.cpp
 │   │   │   ├── B.cpp
 │   │   │   ├── C2.cpp
-│   │   │   ├── C.cpp
-│   │   │   ├── in
-│   │   │   └── out
+│   │   │   └── C.cpp
 │   │   ├── Round#606
 │   │   │   ├── A.cpp
 │   │   │   ├── B.cpp
 │   │   │   ├── C.cpp
 │   │   │   ├── D.cpp
 │   │   │   ├── E.cpp
-│   │   │   ├── in
-│   │   │   ├── in2
 │   │   │   └── Problems - Codeforces.pdf
 │   │   ├── Round#608
 │   │   │   ├── A.cpp
 │   │   │   ├── B.cpp
 │   │   │   ├── C.cpp
 │   │   │   ├── D.cpp
-│   │   │   ├── E.cpp
-│   │   │   └── in
+│   │   │   └── E.cpp
 │   │   └── UKIEPC2017
 │   │       ├── 2017-united-kingdom-ireland-programming-contest-ukiepc-2017-en.pdf
 │   │       ├── A.cpp
@@ -281,9 +217,7 @@
 │   │       ├── F.cpp
 │   │       ├── G.cpp
 │   │       ├── H.cpp
-│   │       ├── in
-│   │       ├── J.cpp
-│   │       └── out
+│   │       └── J.cpp
 │   ├── FZUOJ
 │   │   └── FZU2150.cpp
 │   ├── HDUOJ
@@ -323,21 +257,13 @@
 │   │   ├── HDU4578.cpp
 │   │   ├── HDU4614.cpp
 │   │   ├── HDU5306.cpp
-│   │   ├── in
-│   │   ├── out
-│   │   ├── out.dot
 │   │   ├── plan
 │   │   └── test.cpp
 │   ├── LibreOJ
 │   │   ├── 6000.cpp
 │   │   ├── 6001.cpp
-│   │   ├── in
 │   │   └── 网络流24题.md
 │   ├── LuoGu
-│   │   ├── ans
-│   │   ├── in
-│   │   ├── in1
-│   │   ├── out
 │   │   ├── P1003.cpp
 │   │   ├── P1014.cpp
 │   │   ├── P1020.cpp
@@ -367,6 +293,7 @@
 │   │   ├── P1361.cpp
 │   │   ├── P1426.cpp
 │   │   ├── P1428.cpp
+│   │   ├── P1456.cpp
 │   │   ├── P1464.cpp
 │   │   ├── P1478.cpp
 │   │   ├── P1494.cpp
@@ -403,37 +330,30 @@
 │   │   ├── P3381.cpp
 │   │   ├── P3383.cpp
 │   │   ├── P4779.cpp
-│   │   ├── P5651.cpp
-│   │   └── tryAtry
+│   │   └── P5651.cpp
 │   ├── NowCode
 │   │   ├── BJSF17CXS
 │   │   │   ├── A.cpp
 │   │   │   ├── B.cpp
 │   │   │   └── C.cpp
 │   │   ├── Day_Check
-│   │   │   ├── in
 │   │   │   ├── Kshort.cpp
 │   │   │   └── 骑士精神.cpp
 │   │   ├── DXXLY1
 │   │   │   ├── A.cpp
 │   │   │   ├── F.cpp
-│   │   │   ├── in
 │   │   │   └── J.cpp
 │   │   ├── DXXLY2
-│   │   │   ├── F.cpp
-│   │   │   └── in
+│   │   │   └── F.cpp
 │   │   ├── DXXLY6
 │   │   │   ├── G.cpp
-│   │   │   ├── in
 │   │   │   └── J.cpp
 │   │   ├── JrTeam#18
 │   │   │   ├── A.cpp
-│   │   │   ├── in
 │   │   │   └── test
 │   │   ├── JrTeam#30
 │   │   │   ├── B.cpp
-│   │   │   ├── H.cpp
-│   │   │   └── in
+│   │   │   └── H.cpp
 │   │   ├── Train
 │   │   │   └── Queue
 │   │   │       ├── 13587.cpp
@@ -443,8 +363,6 @@
 │   │       ├── D.cpp
 │   │       └── G.cpp
 │   ├── POJ
-│   │   ├── in
-│   │   ├── out
 │   │   ├── POJ1087.cpp
 │   │   ├── POJ1177.cpp
 │   │   ├── POJ1182.cpp
@@ -481,8 +399,6 @@
 │   │   ├── POJ3468.cpp
 │   │   └── POJ3667.cpp
 │   ├── UVA
-│   │   ├── in
-│   │   ├── out
 │   │   ├── UVA10474.cpp
 │   │   ├── UVA10480.cpp
 │   │   ├── UVA1103
@@ -501,8 +417,6 @@
 │   │   ├── UVA572.md
 │   │   └── UVA725.cpp
 │   ├── XUJCOJ
-│   │   ├── in
-│   │   ├── out
 │   │   ├── Plan
 │   │   ├── XUJC1001.cpp
 │   │   ├── XUJC1003.c
@@ -563,7 +477,6 @@
 │   │   ├── XUJC1209.cpp
 │   │   ├── XUJC1213.cpp
 │   │   ├── XUJC1215
-│   │   │   ├── in
 │   │   │   ├── XUJC1215.cpp
 │   │   │   └── XUJC1215Version2.cpp
 │   │   ├── XUJC1218.cpp
@@ -572,11 +485,10 @@
 │   │   ├── XUJC1242.cpp
 │   │   └── XUJC1243.cpp
 │   └── ZOJ
-│       ├── in
 │       ├── ZOJ1586.cpp
 │       ├── ZOJ1610.cpp
 │       └── ZOJ4109.cpp
 └── README.md
 
-70 directories, 505 files
+70 directories, 417 files
 ```

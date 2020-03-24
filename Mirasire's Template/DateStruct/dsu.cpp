@@ -1,5 +1,4 @@
 const int maxn = 1e5+100;
-
 int dsu[maxn];
 int find(int u) {
 	int a=u,tp;
@@ -11,7 +10,6 @@ int find(int u) {
 	}
 	return u;
 }
-
 void merge(int a,int b) {
 	int fa=find(a),fb=find(b);
 	if(fa!=fb) dsu[fa]=fb;

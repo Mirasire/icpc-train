@@ -2,7 +2,11 @@
  * Autor: Mirasire 
  * GithubRepo: https://github.com/Mirasire/icpc-train/
  * Tag: KMP
- *
+ *----------------------
+ * Repetend = n-nxt[n];
+ * Repetend's Num = n%Repetend? 1 : n/Repetend;
+ * minNum = Repetend-(n%Repetend);
+ * --add minNum char to be a Repetended String
  */
 const int maxn = 1e3+100;
 int n,nxt[maxn];
@@ -16,8 +20,6 @@ void getMax() {
 			nxt[i]=j;
 			//optimization
 			//nxt[i]= (p[i]==p[j])? nxt[j] : j;
-		} else {
-			j=nxt[j];
-		}
+		} else j=nxt[j];
 	}
 }
